@@ -52,7 +52,7 @@ Yes. Without a Widget-ready theme, you will not be able to display the image rot
 
 = What if I still have a question? =
 
-You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Contact Page")
+You can ask questions [Here](http://www.dknewmedia.com/contact "DK New Media Contact Page")
 
 == Screenshots ==
 
