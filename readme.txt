@@ -57,9 +57,11 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 == Screenshots ==
 
 1. DK New Media's Image Rotator Widget.
-2. Images added to the widget are listed in dynamically in the Images section.
-3. Hover over the image name to see a tooltip that contains the image.
-4. Drag & Drop images to sort, right in the widget settings.
+2. Once you've selected or uploaded the image, you must click "Send to Image Rotator."
+3. Images added to the widget are listed in dynamically in the Images section.
+4. Multiple images have been added to this widget
+4. Hover over the image name to see a tooltip that contains the image.
+5. Drag & Drop images to sort, right in the widget settings.
 
 == Changelog ==
 
