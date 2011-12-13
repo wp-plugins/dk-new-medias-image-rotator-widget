@@ -10,9 +10,11 @@ Bare bones image rotator.
 == Description ==
 
 **Overview**
+
 A widgetized plugin that puts an image rotator on your theme. You can choose from three different transitions: linear, loop, and fade. In the widget settings you have the ability to upload/select images to add to the Image Rotator, and to drag & drop to reorder the order you want the images to appear. For a short video demonstrating the settings workflow, visit: http://www.youtube.com/watch?v=D7YMN8b0Olg
 
 **Features**
+
 * Use the WordPress Media Library to upload or select images
 * Choose from three different smooth transitions
 * Drag & drop to order images in whichever way you like
@@ -21,10 +23,12 @@ A widgetized plugin that puts an image rotator on your theme. You can choose fro
 * Works with modern versions of Chrome, Safari, Firefox, and Internet Explorer
 
 **Includes**
+
 * `jQuery`.`qtip`
 * `jQuery`.`imagesLoaded`
 
 **About**
+
 The Image Rotator Widget was written by [Stephen Coley](http://coley.co) of [DK New Media](http://dknewmedia.com)
 
 == Installation ==
@@ -64,7 +68,7 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * readme.txt updates
 * bugfix to only run widget's scripts on the widget.php page
 
-== Upgrade Notice
+== Upgrade Notice ==
 
 = 0.1.1 =
 Works with WordPress 3.3. This version fixes the bug that broke the "Insert into Post" button on the new/edit post pages. 
