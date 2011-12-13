@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.3
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 
 Bare bones image rotator.
 
@@ -68,7 +68,14 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * readme.txt updates
 * bugfix to only run widget's scripts on the widget.php page
 
+= 0.1.2 =
+
+* WordPress 3.3 fix
+
 == Upgrade Notice ==
 
 = 0.1.1 =
 Works with WordPress 3.3. This version fixes the bug that broke the "Insert into Post" button on the new/edit post pages. 
+
+= 0.1.2 =
+Fixes a bug in 3.3 that adds an image's thumbnail url instead of the original url, to the widget.

@@ -141,11 +141,8 @@ function apply_insert_button_filter(iframejq) {
 
 
 			iframejq(e).click(function(){
-				var imgurl = iframejq(this).parent().parent().parent().prev().find('img').attr('src');
-				//jQuery('#upload_image').val(imgurl);
-				//tb_remove();
-
-				n = jQuery('.active-widget .irw_images li').length;
+				var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+				var n = jQuery('.active-widget .irw_images li').length;
 				var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
 				jQuery('.active-widget .add-image-button').parent().removeClass('alert');
 				jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
