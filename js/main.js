@@ -155,8 +155,7 @@ function apply_insert_button_filter(iframejq) {
 					parent.val(imgurl);
 				}
 				tb_remove();
-				rebinder();
-				qtip_init();
+				irw_init();
 			});
 		});
 	}, 1000);

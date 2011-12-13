@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.1
+	Version: 0.1.1
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -28,8 +28,10 @@
 	/**
 	 * Script & stype loader for widget.php
 	 */
-	function irw_admin_actions() {
-
+	function irw_admin_actions($hook) {
+		if('widgets.php' != $hook) {
+			return;
+		}
 		// Scripts
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
@@ -75,7 +77,7 @@
 	class DK_Image_Rotator_Widget extends WP_Widget {
 
 		function DK_Image_Rotator_Widget() {
-			$this->WP_Widget('dk-image-rotator-widget', 'DK New Media\'s Image Rotator Widget', array('description' => 'A widgetized, bare bones image rotator.'));
+			$this->WP_Widget('dk-image-rotator-widget', 'Image Rotator Widget', array('description' => 'A widgetized, bare bones image rotator.'));
 		}
 
 		function widget($args, $instance) {
