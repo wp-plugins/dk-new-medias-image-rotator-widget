@@ -1,4 +1,5 @@
 var iframeJQuery;
+var fromUrl = false;
 
 jQuery(function() {
 
@@ -135,13 +136,21 @@ function qtip_init() {
 }
 
 function apply_insert_button_filter(iframejq) {
+	
 	setInterval(function(){
+
+		if(iframejq("#src").length > 0) {
+			iframejq('body').addClass('fromUrl');
+		}
+
 		iframejq('input.button:[value="Insert into Post"]').each(function(i, e){
 			iframejq(e).attr("value", "Send to Image Rotator Widget");
-
-
 			iframejq(e).click(function(){
-				var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+				if(iframejq('body').is(".fromUrl")) {
+					var imgurl = iframejq('#src').attr('value');
+				} else {
+					var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+				}
 				var n = jQuery('.active-widget .irw_images li').length;
 				var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
 				jQuery('.active-widget .add-image-button').parent().removeClass('alert');
