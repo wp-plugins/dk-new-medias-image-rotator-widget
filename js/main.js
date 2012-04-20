@@ -1,4 +1,5 @@
 var iframeJQuery;
+var fromUrl = false;
 
 jQuery(function() {
 
@@ -38,7 +39,7 @@ function irw_load() {
 
 	irw_init();
 
-	jQuery(".widget-control-save").click(function(){
+	jQuery(".widget-control-save").on("click", function(){
 		setTimeout(function(){
 			irw_init();
 		}, 2000);
@@ -82,7 +83,7 @@ function irw_init() {
 
 function rebinder() {
 	// Removes an Image
-	jQuery(".irw_images li button").unbind().click(function(){
+	jQuery(".irw_images li button").off("click").on("click", function(){
 		var thiss = jQuery(this);
 		thiss.parent().parent().parent().addClass('active-widget');
 		thiss.parent().remove();
@@ -135,13 +136,21 @@ function qtip_init() {
 }
 
 function apply_insert_button_filter(iframejq) {
+	
 	setInterval(function(){
-		iframejq('input.button:[value="Insert into Post"]').each(function(i, e){
+
+		if(iframejq("#src").length > 0) {
+			iframejq('body').addClass('fromUrl');
+		}
+
+		iframejq('.open .savesend input[type=submit], #go_button').each(function(i, e){
 			iframejq(e).attr("value", "Send to Image Rotator Widget");
-
-
-			iframejq(e).click(function(){
-				var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+			iframejq(e).off("click").on("click", function(){
+				if(iframejq('body').is(".fromUrl")) {
+					var imgurl = iframejq('#src').attr('value');
+				} else {
+					var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+				}
 				var n = jQuery('.active-widget .irw_images li').length;
 				var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
 				jQuery('.active-widget .add-image-button').parent().removeClass('alert');
@@ -173,3 +182,4 @@ function get_truncated_filename(str, is_url) {
 	return filename[0].substr(0, 20) + "..." + filename.pop();
 	
 }
+
