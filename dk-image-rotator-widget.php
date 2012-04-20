@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.1.3
+	Version: 0.1.4
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -87,8 +87,10 @@
 			// If $image_list is set and not empty...
 			if(isset($image_list) && $image_list != "") {
 				$images = explode(", ", $image_list);
+				$irw_title = $instance['irw_title'];
 				$transition = $instance['irw_transition'];
 				echo $before_widget;
+				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
 				echo '<div class="irw-widget">';
 				echo '<input type="hidden" class="irw-transition" value="' . $transition . '" />';
 				echo '<ul class="irw-slider">';
@@ -106,6 +108,7 @@
 
 		function update($new_instance, $old_instance) {
 			$instance = $old_instance;
+			$instance['irw_title'] = strip_tags($new_instance['irw_title']);
 			$instance['irw_images'] = strip_tags($new_instance['irw_images']);
 			$instance['irw_transition'] = strip_tags($new_instance['irw_transition']);
 			return $instance;
@@ -114,12 +117,17 @@
 		function form($instance) {
 
 			if ($instance) {
+				$irw_title = esc_attr($instance['irw_title']);
 				$irw_images = esc_attr($instance['irw_images']);
 				$irw_transition = esc_attr($instance['irw_transition']);
 			} ?>
 
 			<h5 class="irw_header">Options</h5>
 
+			<p>
+				<label for="<?php echo $this->get_field_id('irw_title'); ?>"><?php _e('Title:'); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id('irw_title'); ?>" name="<?php echo $this->get_field_name('irw_title'); ?>" type="text" value="<?php echo $irw_title; ?>" />
+			</p>
 			<p>
 				<label for="<?php echo $this->get_field_name('irw_transition'); ?>">Transition: </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition'); ?>" id="<?php echo $this->get_field_id('irw_transition'); ?>">
@@ -158,3 +166,4 @@
 		<?php }
 
 	} ?>
+
