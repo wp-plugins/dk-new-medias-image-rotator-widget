@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.3.1
-Stable tag: 0.1.4
+Stable tag: 0.1.5
 
 Bare bones image rotator.
 
@@ -83,6 +83,10 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Added optional widget setting "title".
 * Fixed localization bug with "Send the Image Rotator Widget" button
 
+= 0.1.5 =
+
+* Fixed installation bug
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -97,3 +101,7 @@ Added ability to use the "From URL" tab on the Media Upload when selecting an im
 = 0.1.4 =
 
 Added optional widget setting "title" and fixed localization bug with "Send the Image Rotator Widget" button
+
+= 0.1.5 =
+
+Fixed installation bug
