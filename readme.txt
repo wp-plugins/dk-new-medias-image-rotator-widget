@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.3.1
-Stable tag: 0.1.5
+Stable tag: 0.1.6
 
 Bare bones image rotator.
 
@@ -17,6 +17,7 @@ A widgetized plugin that puts an image rotator on your theme. You can choose fro
 
 * Use the WordPress Media Library to upload or select images
 * Choose from three different smooth transitions
+* Set a transition speed
 * Drag & drop to order images in whichever way you like
 * Use the Image Rotator Widget multiple times on the same page
 * Widgetized, so you can rotate your images anywhere 
@@ -87,6 +88,11 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 
 * Fixed installation bug
 
+= 0.1.6 =
+
+* Fixed 3.4 a bug - wouldn't send the image url to the widget
+* Added Transition Speed to the widget settings
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -105,3 +111,8 @@ Added optional widget setting "title" and fixed localization bug with "Send the 
 = 0.1.5 =
 
 Fixed installation bug
+
+= 0.1.6 =
+
+Fixed 3.4 a bug - wouldn't send the image url to the widget
+Added Transition Speed to the widget settings
