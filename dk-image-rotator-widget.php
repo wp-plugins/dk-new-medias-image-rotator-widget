@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.1.5
+	Version: 0.1.6
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -89,10 +89,12 @@
 				$images = explode(", ", $image_list);
 				$irw_title = $instance['irw_title'];
 				$transition = $instance['irw_transition'];
+				$transition_speed = $instance['irw_transition_speed'];
 				echo $before_widget;
 				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
 				echo '<div class="irw-widget">';
 				echo '<input type="hidden" class="irw-transition" value="' . $transition . '" />';
+				echo '<input type="hidden" class="irw-transition-speed" value="' . $transition_speed . '" />';
 				echo '<ul class="irw-slider">';
 				// Loop through images
 				foreach($images as $image) {
@@ -111,6 +113,7 @@
 			$instance['irw_title'] = strip_tags($new_instance['irw_title']);
 			$instance['irw_images'] = strip_tags($new_instance['irw_images']);
 			$instance['irw_transition'] = strip_tags($new_instance['irw_transition']);
+			$instance['irw_transition_speed'] = strip_tags($new_instance['irw_transition_speed']);
 			return $instance;
 		}
 
@@ -120,6 +123,7 @@
 				$irw_title = esc_attr($instance['irw_title']);
 				$irw_images = esc_attr($instance['irw_images']);
 				$irw_transition = esc_attr($instance['irw_transition']);
+				$irw_transition_speed = esc_attr($instance['irw_transition_speed']);
 			} ?>
 
 			<h5 class="irw_header">Options</h5>
@@ -134,6 +138,21 @@
 					<option <?php if($irw_transition == "linear") { echo 'selected="selected"'; } ?> value="linear">Linear</option>
 					<option <?php if($irw_transition == "loop") { echo 'selected="selected"'; } ?> value="loop">Loop</option>
 					<option <?php if($irw_transition == "fade") { echo 'selected="selected"'; } ?> value="fade">Fade</option>
+				</select>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_name('irw_transition_speed'); ?>">Transition Speed: </label>
+				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition_speed'); ?>" id="<?php echo $this->get_field_id('irw_transition_speed'); ?>">
+					<option <?php if($irw_transition_speed == "1") { echo 'selected="selected"'; } ?> value="1">1</option>
+					<option <?php if($irw_transition_speed == "2") { echo 'selected="selected"'; } ?> value="2">2</option>
+					<option <?php if($irw_transition_speed == "3") { echo 'selected="selected"'; } ?> value="3">3</option>
+					<option <?php if($irw_transition_speed == "4") { echo 'selected="selected"'; } ?> value="4">4</option>
+					<option <?php if($irw_transition_speed == "5") { echo 'selected="selected"'; } ?> value="5">5</option>
+					<option <?php if($irw_transition_speed == "6") { echo 'selected="selected"'; } ?> value="6">6</option>
+					<option <?php if($irw_transition_speed == "7") { echo 'selected="selected"'; } ?> value="7">7</option>
+					<option <?php if($irw_transition_speed == "8") { echo 'selected="selected"'; } ?> value="8">8</option>
+					<option <?php if($irw_transition_speed == "9") { echo 'selected="selected"'; } ?> value="9">9</option>
+					<option <?php if($irw_transition_speed == "10") { echo 'selected="selected"'; } ?> value="10">10</option>
 				</select>
 			</p>
 
