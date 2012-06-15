@@ -91,7 +91,6 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.1.6 =
 
 * Fixed 3.4 a bug - wouldn't send the image url to the widget
-* Added Transition Speed to the widget settings
 
 == Upgrade Notice ==
 
@@ -115,4 +114,3 @@ Fixed installation bug
 = 0.1.6 =
 
 Fixed 3.4 a bug - wouldn't send the image url to the widget
-Added Transition Speed to the widget settings
