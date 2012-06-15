@@ -149,7 +149,7 @@ function apply_insert_button_filter(iframejq) {
 				if(iframejq('body').is(".fromUrl")) {
 					var imgurl = iframejq('#src').attr('value');
 				} else {
-					var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').attr('title');
+					var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').data('link-url');
 				}
 				var n = jQuery('.active-widget .irw_images li').length;
 				var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
