@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.1.6
+	Version: 0.1.8
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -98,7 +98,14 @@
 				echo '<ul class="irw-slider">';
 				// Loop through images
 				foreach($images as $image) {
-					echo '<li><img src="' . $image . '" /></li>';
+					$a = explode("|", $image);
+					if(count($a) > 1 && $a[0] != $a[1]) {
+						$image = $a[0];
+						$image_link = $a[1];
+						echo '<li><img src="' . $image . '" data-image-link="' . $image_link . '" class="pointer_cursor" /></li>';
+					} else {
+						echo '<li><img src="' . $a[0] . '" /></li>';
+					}
 				}
 				echo '</ul></div>';
 				echo $after_widget;
@@ -164,7 +171,13 @@
 					<?php $images = explode(", ", $irw_images); // str to array ?>
 					<?php $i = 1; // counter ?>
 					<?php foreach($images as $image) : // Loop through images ?>
-						<li data-url="<?php echo $image; ?>" ><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
+						<?php
+							if($a = explode("|", $image)) {
+								$image = $a[0];
+								$image_link = $a[1];
+							}
+						?>
+						<li data-url="<?php echo $image; ?>" data-link="<?php echo $image_link; ?>" ><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
 					<?php endforeach; ?>
 				<?php // Else ?>
 				<?php else : ?>
