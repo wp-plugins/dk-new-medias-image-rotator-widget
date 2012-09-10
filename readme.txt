@@ -2,8 +2,8 @@
 Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
-Tested up to: 3.4.1
-Stable tag: 0.1.7
+Tested up to: 3.4.2
+Stable tag: 0.1.8
 
 Bare bones image rotator.
 
@@ -103,6 +103,9 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Fixed 3.4.1 bug
 * Added ability to make images in the rotator linkable
 
+= 0.1.8 =
+* Fixes bug with linking images
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -130,3 +133,7 @@ Added Transition Speed to the widget settings
 = 0.1.7 =
 
 This update fixes a WordPress 3.4.1 bug and allows you to make images in your rotator linkable!
+
+= 0.1.8 =
+
+This update fixes a bug some were experiencing with adding links to images.
