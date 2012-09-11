@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.4.2
-Stable tag: 0.1.9
+Stable tag: 0.2
 
 Bare bones image rotator.
 
@@ -109,6 +109,9 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.1.9 =
 * Fixes 0.1.8 bad release.
 
+= 0.2 =
+* Fixes 0.1.9 bad release.
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -144,3 +147,7 @@ This update fixes a bug some were experiencing with adding links to images.
 = 0.1.9 =
 
 If you were having issues making your images linkable, update now. The problem has been fixed.
+
+= 0.2 =
+
+Those of you having trouble with linking images, please update now.

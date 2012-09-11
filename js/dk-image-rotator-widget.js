@@ -10,6 +10,13 @@ jQuery(function($){
 		irw_init($(e));
 	});
 
+	$(".irw-slider li img").each(function(){
+		$(this).on("click", function(){
+			window.location = $(this).data('image-link');
+			return false;
+		});
+	});
+
 });
 
 var ie8 = false;
