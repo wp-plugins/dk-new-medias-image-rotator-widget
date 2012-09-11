@@ -147,18 +147,23 @@ function apply_insert_button_filter(iframejq) {
 			iframejq(e).attr("value", "Send to Image Rotator Widget");
 			iframejq(e).off("click").on("click", function(){
 				if(iframejq('body').is(".fromUrl")) {
-					var imgurl = iframejq('#src').attr('value');
+					var imgurl = iframejq('#src').val();
+					var imglink = iframejq('#url').val();
 				} else {
-					var imgurl = iframejq(this).parent().parent().parent().find('.urlfile').data('link-url');
+					var imgurl = iframejq('.open .urlfile').data('link-url');
+					var imglink = iframejq('.open .urlfield').val();
 				}
 				var n = jQuery('.active-widget .irw_images li').length;
 				var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
 				jQuery('.active-widget .add-image-button').parent().removeClass('alert');
-				jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
+				jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "' data-link='" + imglink + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
 				if(n > 0) {
-					parent.val(jQuery('.active-widget .image_list').val() + ", " + imgurl);
+					var list = jQuery('.active-widget .image_list').val();
+					var img = imgurl + "|" + imglink;
+					parent.val(list + ", " + img);
 				} else {
-					parent.val(imgurl);
+					var img = imgurl + "|" + imglink;
+					parent.val(img);
 				}
 				tb_remove();
 				irw_init();
@@ -182,4 +187,3 @@ function get_truncated_filename(str, is_url) {
 	return filename[0].substr(0, 20) + "..." + filename.pop();
 	
 }
-
