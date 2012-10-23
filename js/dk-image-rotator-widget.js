@@ -31,6 +31,7 @@ function irw_init(element) {
 	var slider = widget.children(".irw-slider");
 	var parent = widget.parent();
 	var transition = widget.children(".irw-transition").val();
+	var speed = widget.children(".irw-transition-speed").val();
 	widget.css({ 'position': 'relative', 'z-index': '1' });
 	slider.css({ 'z-index': '2' }).find("li img").css('max-width', 'none');
 	if(parent.width() > parent.height()) {
@@ -45,18 +46,18 @@ function irw_init(element) {
 	switch(transition) {
 		case "linear" :
 			slider.imagesLoaded(function(img){
-				irw_load_linear(img, widget, slider);
+				irw_load_linear(img, widget, slider, speed);
 			});
 			break;
 		case "loop" :
 			//slider.html(slider.html() + slider.html());
 			slider.imagesLoaded(function(img){
-				irw_load_loop(img, widget, slider);
+				irw_load_loop(img, widget, slider, speed);
 			});
 			break;
 		case "fade" :
 			slider.imagesLoaded(function(img){
-				irw_load_fade(img, widget, slider);
+				irw_load_fade(img, widget, slider, speed);
 			});
 			break;
 		default :
@@ -65,12 +66,24 @@ function irw_init(element) {
 	}
 }
 
+/**
+ * Speed Modifier
+ */
+function speed_modifier(mod, speed) {
+	if(mod > 0 && mod < 11) {
+		var r = speed * (mod / 10);
+		return speed + (r*2);
+	} else {
+		return speed;
+	}
+}
+
 
 ///////////////////////////////
 //		Fade Animation
 //////////////////////////////
 
-function irw_load_fade(img, widget, slider) {
+function irw_load_fade(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
 	img.each(function(i){
@@ -91,11 +104,11 @@ function irw_load_fade(img, widget, slider) {
 	});
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', margin: "0px" });
 	setTimeout(function(){
-		irw_fade(img, widget, slider);
-	}, 2000);
+		irw_fade(img, widget, slider, speed);
+	}, speed_modifier(speed, 2000));
 }
 
-function irw_fade(img, widget, slider) {
+function irw_fade(img, widget, slider, speed) {
 	var active = slider.children(".active");
 	if(active.is(slider.find("li:last-child"))) {
 		var next = slider.find("li:first-child");
@@ -103,12 +116,12 @@ function irw_fade(img, widget, slider) {
 		var next = active.next();
 	}
 
-	active.fadeOut(1000, function() {
+	active.fadeOut(speed_modifier(speed, 1000), "linear", function() {
 		active.removeClass("active");
-		next.addClass("active").fadeIn(1000, function(){
+		next.addClass("active").fadeIn(speed_modifier(speed, 1000), "linear", function(){
 			setTimeout(function(){
 				irw_fade(img, widget, slider);
-			}, 2000);	
+			}, speed_modifier(speed, 2000));	
 		});
 	});
 }
@@ -118,7 +131,7 @@ function irw_fade(img, widget, slider) {
 //		Linear Animation
 //////////////////////////////
 
-function irw_load_linear(img, widget, slider) {
+function irw_load_linear(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
 	img.each(function(i){
@@ -138,7 +151,7 @@ function irw_load_linear(img, widget, slider) {
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', width: slider_width + "px", margin: "0px", position: 'relative'  });
 
 	var w = slider_width - widget.width();
-	var duration = slider_width * 20;
+	var duration = speed_modifier(speed, slider_width * 20);
 
 	irw_linear(w, slider, duration);
 }
@@ -164,7 +177,7 @@ function irw_linear_reverse(width, slider, duration) {
 //		Loop Animation
 //////////////////////////////
 
-function irw_load_loop(img, widget, slider) {
+function irw_load_loop(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
 	img.each(function(i){
@@ -185,8 +198,8 @@ function irw_load_loop(img, widget, slider) {
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', width: slider_width + "px", margin: "0px", position: 'relative'  });
 
 	var w = slider_width - widget.width();
-	var first_duration = w * 30;
-	var duration = slider_width * 30;
+	var first_duration = speed_modifier(speed, w * 30);
+	var duration = speed_modifier(speed, slider_width * 30);
 
 	slider.animate({
 		left: "-" + w + "px"

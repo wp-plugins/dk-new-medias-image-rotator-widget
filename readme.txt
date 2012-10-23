@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.4.2
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 
 Bare bones image rotator.
 
@@ -115,6 +115,11 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.2.1 =
 * Fixes error that shows "unexpected output" when activating.
 
+= 0.2.2 = 
+* Bugfix - Trasistion Speed has been fixed for all three transitions
+* Bugfix - Images set to link to themselves would not work
+* Update - Now includes the latest release of imagesloaded.js
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -158,3 +163,7 @@ Those of you having trouble with linking images, please update now.
 = 0.2.1 =
 
 This update solves a non-harmful bug that showed a warning notice while activating the plugin.
+
+= 0.2.2 =
+
+This update fixes the transition speed setting for ALL transitions. I have also fixed a few bugs related to linking images. The imagesloaded.js library included in the plugin has been updated to the latest version.

@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.1
+	Version: 0.2.2
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -99,10 +99,8 @@
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
-					if(count($a) > 1 && $a[0] != $a[1]) {
-						$image = $a[0];
-						$image_link = $a[1];
-						echo '<li><img src="' . $image . '" data-image-link="' . $image_link . '" class="pointer_cursor" /></li>';
+					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
+						echo '<li><img src="' . $a[0] . '" data-image-link="' . $a[1] . '" class="pointer_cursor" /></li>';
 					} else {
 						echo '<li><img src="' . $a[0] . '" /></li>';
 					}
@@ -150,7 +148,7 @@
 			<p>
 				<label for="<?php echo $this->get_field_name('irw_transition_speed'); ?>">Transition Speed: </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition_speed'); ?>" id="<?php echo $this->get_field_id('irw_transition_speed'); ?>">
-					<option <?php if($irw_transition_speed == "1") { echo 'selected="selected"'; } ?> value="1">1</option>
+					<option <?php if($irw_transition_speed == "1") { echo 'selected="selected"'; } ?> value="1">1 - Fastest</option>
 					<option <?php if($irw_transition_speed == "2") { echo 'selected="selected"'; } ?> value="2">2</option>
 					<option <?php if($irw_transition_speed == "3") { echo 'selected="selected"'; } ?> value="3">3</option>
 					<option <?php if($irw_transition_speed == "4") { echo 'selected="selected"'; } ?> value="4">4</option>
@@ -159,7 +157,7 @@
 					<option <?php if($irw_transition_speed == "7") { echo 'selected="selected"'; } ?> value="7">7</option>
 					<option <?php if($irw_transition_speed == "8") { echo 'selected="selected"'; } ?> value="8">8</option>
 					<option <?php if($irw_transition_speed == "9") { echo 'selected="selected"'; } ?> value="9">9</option>
-					<option <?php if($irw_transition_speed == "10") { echo 'selected="selected"'; } ?> value="10">10</option>
+					<option <?php if($irw_transition_speed == "10") { echo 'selected="selected"'; } ?> value="10">10 - Slowest</option>
 				</select>
 			</p>
 
