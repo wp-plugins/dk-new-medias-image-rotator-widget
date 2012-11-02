@@ -128,7 +128,7 @@ function irw_fade(img, widget, slider, speed) {
 		active.removeClass("active");
 		next.addClass("active").fadeIn(speed_modifier(speed, 1000), "linear", function(){
 			setTimeout(function(){
-				irw_fade(img, widget, slider);
+				irw_fade(img, widget, slider, speed);
 			}, speed_modifier(speed, 2000));	
 		});
 	});
