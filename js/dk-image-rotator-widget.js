@@ -12,7 +12,15 @@ jQuery(function($){
 
 	$(".irw-slider li img").each(function(){
 		$(this).on("click", function(){
-			window.location = $(this).data('image-link');
+			var link = $(this).data('image-link');
+			if(typeof link !== "undefined") {
+				var new_window = $(".irw-widget .irw-new-window").val();
+				if(new_window == "true") {
+					window.open(link);
+				} else {
+					window.location = link;
+				}
+			}
 			return false;
 		});
 	});

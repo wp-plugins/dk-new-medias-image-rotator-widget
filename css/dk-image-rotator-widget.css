@@ -11,7 +11,7 @@
 	display: inline-block;
 }
 
-.irw-slider li img {
+.irw-slider li img.pointer_cursor {
 	cursor: pointer;
 }
 

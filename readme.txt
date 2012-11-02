@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.4.2
-Stable tag: 0.2.2
+Stable tag: 0.2.3
 
 Bare bones image rotator.
 
@@ -120,6 +120,11 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Bugfix - Images set to link to themselves would not work
 * Update - Now includes the latest release of imagesloaded.js
 
+= 0.2.3 =
+* Feature - Added the ability to open links in new a tab/window.
+* Bugfix - Some images were clicking through to a link that was undefined. This has been fixed.
+* Bugfix - Mouse now only turns to the pointer when an image is linked.
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -167,3 +172,7 @@ This update solves a non-harmful bug that showed a warning notice while activati
 = 0.2.2 =
 
 This update fixes the transition speed setting for ALL transitions. I have also fixed a few bugs related to linking images. The imagesloaded.js library included in the plugin has been updated to the latest version.
+
+= 0.2.3 =
+
+With version 0.2.3 you can open linked images in a new tab/window. This version also fixes the issue where some images were linking to undefined links. Also, now a users cursor will only turn to a pointer if the image they're hovering over is linked. Update now!
