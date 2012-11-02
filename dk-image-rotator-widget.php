@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.2
+	Version: 0.2.3
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -87,14 +87,16 @@
 			// If $image_list is set and not empty...
 			if(isset($image_list) && $image_list != "") {
 				$images = explode(", ", $image_list);
-				$irw_title = $instance['irw_title'];
+				$irw_title = apply_filters('widget_title', $instance['irw_title']);
 				$transition = $instance['irw_transition'];
 				$transition_speed = $instance['irw_transition_speed'];
+				$new_window = $instance['irw_new_window'];
 				echo $before_widget;
 				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
 				echo '<div class="irw-widget">';
 				echo '<input type="hidden" class="irw-transition" value="' . $transition . '" />';
 				echo '<input type="hidden" class="irw-transition-speed" value="' . $transition_speed . '" />';
+				echo '<input type="hidden" class="irw-new-window" value="' . $new_window . '" />';
 				echo '<ul class="irw-slider">';
 				// Loop through images
 				foreach($images as $image) {
@@ -119,16 +121,21 @@
 			$instance['irw_images'] = strip_tags($new_instance['irw_images']);
 			$instance['irw_transition'] = strip_tags($new_instance['irw_transition']);
 			$instance['irw_transition_speed'] = strip_tags($new_instance['irw_transition_speed']);
+			$instance['irw_new_window'] = strip_tags($new_instance['irw_new_window']);
 			return $instance;
 		}
 
 		function form($instance) {
+
+			$defaults = array( 'irw_images' => '', 'irw_new_window' => 'false' );
+			$instance = wp_parse_args((array) $instance, $defaults);
 
 			if ($instance) {
 				$irw_title = esc_attr($instance['irw_title']);
 				$irw_images = esc_attr($instance['irw_images']);
 				$irw_transition = esc_attr($instance['irw_transition']);
 				$irw_transition_speed = esc_attr($instance['irw_transition_speed']);
+				$irw_new_window = esc_attr($instance['irw_new_window']);
 			} ?>
 
 			<h5 class="irw_header">Options</h5>
@@ -158,6 +165,13 @@
 					<option <?php if($irw_transition_speed == "8") { echo 'selected="selected"'; } ?> value="8">8</option>
 					<option <?php if($irw_transition_speed == "9") { echo 'selected="selected"'; } ?> value="9">9</option>
 					<option <?php if($irw_transition_speed == "10") { echo 'selected="selected"'; } ?> value="10">10 - Slowest</option>
+				</select>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_name('irw_new_window'); ?>">Open in New tab/window: </label>
+				<select class="widefat" name="<?php echo $this->get_field_name('irw_new_window'); ?>" id="<?php echo $this->get_field_id('irw_new_window'); ?>">
+					<option <?php if($irw_new_window == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
+					<option <?php if($irw_new_window == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
 				</select>
 			</p>
 

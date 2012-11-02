@@ -108,6 +108,7 @@ function qtip_init() {
 	jQuery(".irw_images li span:not(.button)").each(function(e,n){
 		jQuery(this).text(get_truncated_filename(jQuery(this).text(), true));
 		var src = jQuery(this).parent().attr("data-url");
+		console.log("qtip: " + src);
 
 		jQuery(this).qtip({
 			content: {
