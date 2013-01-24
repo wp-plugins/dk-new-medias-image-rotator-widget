@@ -6,8 +6,8 @@ jQuery(function($){
 		$('body').addClass('ie7');
 	}
 
-	$(".irw-widget").each(function(i, e){
-		irw_init($(e));
+	$(".irw-widget").each(function(){
+		irw_init($(this));
 	});
 
 	$(".irw-slider li img").each(function(){
@@ -35,7 +35,7 @@ var image_set_position;
 var image_set;
 
 function irw_init(element) {
-	var widget = element
+	var widget = element;
 	var slider = widget.children(".irw-slider");
 	var parent = widget.parent();
 	var transition = widget.children(".irw-transition").val();
@@ -94,6 +94,7 @@ function speed_modifier(mod, speed) {
 function irw_load_fade(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
+	var image_set_height = 0;
 	img.each(function(i){
 		width_array[i] = jQuery(this).width();
 		height_array[i] = jQuery(this).height();
@@ -142,6 +143,7 @@ function irw_fade(img, widget, slider, speed) {
 function irw_load_linear(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
+	var image_set_height = 0;
 	img.each(function(i){
 		width_array[i] = jQuery(this).width();
 		height_array[i] = jQuery(this).height();
@@ -150,6 +152,7 @@ function irw_load_linear(img, widget, slider, speed) {
 		}
 	});
 	widget.height(image_set_height + "px");
+	widget.attr('data-rand', Math.floor(Math.random()*9999));
 	var slider_width = 0;
 	for(i=0;i < width_array.length;i++) {
 		slider_width += width_array[i];
@@ -188,6 +191,7 @@ function irw_linear_reverse(width, slider, duration) {
 function irw_load_loop(img, widget, slider, speed) {
 	var width_array = new Array();
 	var height_array = new Array();
+	var image_set_height = 0;
 	img.each(function(i){
 		width_array[i] = jQuery(this).width();
 		height_array[i] = jQuery(this).height();

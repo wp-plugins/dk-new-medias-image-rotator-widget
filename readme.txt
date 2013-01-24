@@ -2,8 +2,8 @@
 Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
-Tested up to: 3.4.2
-Stable tag: 0.2.3
+Tested up to: 3.5
+Stable tag: 0.2.4
 
 Bare bones image rotator.
 
@@ -15,8 +15,8 @@ A widgetized plugin that puts an image rotator on your theme. You can choose fro
 
 **Features**
 
-* Use the WordPress Media Library to upload or select images
-* NEW - Make images click through to a link
+* Use the WordPress 3.5 Media Uploader to upload or select images
+* Make images click through to a link
 * Choose from three different smooth transitions
 * Set a transition speed
 * Drag & drop to order images in whichever way you like
@@ -126,6 +126,12 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Bugfix - Mouse now only turns to the pointer when an image is linked.
 * Bugfix - Transition speed for the fade transition now works properly.
 
+= 0.2.4 =
+* Update - Now uses the 3.5 Media Uploader
+* Update - Added responsive styles as suggested: http://wordpress.org/support/topic/responsive-css?replies=2
+* Bugfix - Height issue when using two or more irw widgets on the same page
+* Bugfix - Better compatibility for users upgrading from older versions
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -177,3 +183,7 @@ This update fixes the transition speed setting for ALL transitions. I have also 
 = 0.2.3 =
 
 With version 0.2.3 you can open linked images in a new tab/window. This version also fixes the issue where some images were linking to undefined links. Also, now a users cursor will only turn to a pointer if the image they're hovering over is linked. Also fixes a fade transition speed bug. Update now!
+
+= 0.2.4 =
+
+You can now add images to your rotator using WordPress' new 3.5 Media Uploader. We've also added better responsive support and fixed a few bugs related to linking images.

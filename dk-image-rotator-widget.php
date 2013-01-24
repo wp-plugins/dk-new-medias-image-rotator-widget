@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.3
+	Version: 0.2.4
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -33,8 +33,14 @@
 			return;
 		}
 		// Scripts
-		wp_enqueue_script('media-upload');
-		wp_enqueue_script('thickbox');
+		if(function_exists('wp_enqueue_media')) {
+			wp_enqueue_media();
+		} else {
+			wp_enqueue_style('thickbox');
+			wp_enqueue_script('media-upload');
+			wp_enqueue_script('thickbox');
+		}
+				
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_register_script('irw-js', path_join(WP_PLUGIN_URL, basename( dirname( __FILE__ ) ).'/js/main.js'), array('jquery','media-upload','thickbox'));
 		wp_enqueue_script('irw-js');
@@ -42,7 +48,6 @@
 		wp_enqueue_script('irw-qtip');
 
 		// Styles
-		wp_enqueue_style('thickbox');
 		wp_register_style('irw-css', path_join(WP_PLUGIN_URL, basename( dirname( __FILE__ ) ).'/css/main.css'));
 		wp_enqueue_style('irw-css');
 	}
@@ -184,9 +189,13 @@
 					<?php $i = 1; // counter ?>
 					<?php foreach($images as $image) : // Loop through images ?>
 						<?php
-							if($a = explode("|", $image)) {
+							$a = explode("|", $image);
+							if(count($a) > 1) {
 								$image = $a[0];
 								$image_link = $a[1];
+							} else {
+								$image = $a[0];
+								$image_link = "";
 							}
 						?>
 						<li data-url="<?php echo $image; ?>" data-link="<?php echo $image_link; ?>" ><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
@@ -197,7 +206,9 @@
 				<?php endif; ?>
 			</ul>
 			<p style="width: 226px;" class="add_image text_align_right <?php if(count($images) < 1) { echo "alert"; } ?>">
-				<button class="button add-image-button irw_button" onclick="media_dialog(); return false;">+</button>
+				<?php $version = explode("-", get_bloginfo('version')); ?>
+				<?php $dep = ($version >= 3.5) ? "" : "_dep"; ?>
+				<button class="button add-image-button irw_button" onclick="media_dialog<?php echo $dep; ?>(this); return false;">+</button>
 			</p>
 			<input type="hidden" id="<?php echo $this->get_field_id('irw_images'); ?>" class="image_list" name="<?php echo $this->get_field_name('irw_images'); ?>" value="<?php echo $irw_images; ?>" />
 
