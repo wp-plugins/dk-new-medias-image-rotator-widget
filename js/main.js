@@ -172,7 +172,49 @@ function apply_insert_button_filter(iframejq) {
 	}, 1000);
 }
 
+function upload_handler(imgurl, imglink) {
+	
+	if(imglink == false) {
+		imglink = "";
+	}
+	var n = jQuery('.active-widget .irw_images li').length;
+	var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
+	jQuery('.active-widget .add-image-button').parent().removeClass('alert');
+	jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "' data-link='" + imglink + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
+	if(n > 0) {
+		var list = jQuery('.active-widget .image_list').val();
+		var img = imgurl + "|" + imglink;
+		parent.val(list + ", " + img);
+	} else {
+		var img = imgurl + "|" + imglink;
+		parent.val(img);
+	}
+	irw_init();
+}
+
 function media_dialog(e) {
+
+	var send_attachment_bkp = wp.media.editor.send.attachment;
+
+	wp.media.editor.send.attachment = function(props, attachment) {
+		var imgUrl = attachment.url;
+		if(props.link == "file") {
+			var imgLink = attachment.url;
+		} else if(props.link == "custom") {
+			var imgLink = props.linkUrl;
+		} else if(props.link == "post") {
+			var imgLink = attachment.link;
+		} else {
+			var imgLink = false;
+		}
+		upload_handler(imgUrl, imgLink);
+		wp.media.editor.send.attachment = send_attachment_bkp;
+	}
+	wp.media.editor.open(e/*'#' + button.attr('id')*/);
+	return false;
+}
+
+function media_dialog_dep(e) {
 	formfield = jQuery('#upload_image').attr('name');
 	tb_show('Add Image to the Image Rotator Widget', 'media-upload.php?type=image&amp;TB_iframe=true');
 	return false;
@@ -184,6 +226,10 @@ function get_truncated_filename(str, is_url) {
 	} else {
 		var filename = str.split(".");
 	}
-	return filename[0].substr(0, 20) + "..." + filename.pop();
+	if(filename[0].length > 20) {
+		return filename[0].substr(0, 20) + "..." + filename.pop();
+	} else {
+		return filename[0] + "." + filename[1];
+	}
 	
 }

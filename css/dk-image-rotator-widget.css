@@ -1,6 +1,7 @@
 .irw-widget {
 	height: 20px;
 	overflow: hidden;
+	max-width: 100% !important;
 }
 
 .irw-widget.loading {
@@ -9,6 +10,10 @@
 
 .irw-slider li {
 	display: inline-block;
+}
+
+.irw-widget li img {
+	max-width: 100% !important;
 }
 
 .irw-slider li img.pointer_cursor {
