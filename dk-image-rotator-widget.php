@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.4
+	Version: 0.2.5
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -95,7 +95,14 @@
 				$irw_title = apply_filters('widget_title', $instance['irw_title']);
 				$transition = $instance['irw_transition'];
 				$transition_speed = $instance['irw_transition_speed'];
+				$no_follow = $instance['irw_nofollow'];
 				$new_window = $instance['irw_new_window'];
+				/*if($new_window === "true") {
+					$new_window = 'target="_blank"';
+				} else {
+					$new_window = '';
+				}*/
+				$new_window = ($new_window === 'true') ? 'target="_blank"' : '';
 				echo $before_widget;
 				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
 				echo '<div class="irw-widget">';
@@ -106,10 +113,12 @@
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
+					$sizes = getimagesize($a[0]);
 					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
-						echo '<li><img src="' . $a[0] . '" data-image-link="' . $a[1] . '" class="pointer_cursor" /></li>';
+						$nofollow = (isset($no_follow) && $no_follow === 'true') ? 'rel="nofollow"' : '';
+						echo '<li><a href="' . $a[1] . '" ' . $new_window . ' '  . $nofollow . '><img src="' . $a[0] . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '" class="pointer_cursor" /></a></li>';
 					} else {
-						echo '<li><img src="' . $a[0] . '" /></li>';
+						echo '<li><img src="' . $a[0] . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '"/></li>';
 					}
 				}
 				echo '</ul></div>';
@@ -126,13 +135,14 @@
 			$instance['irw_images'] = strip_tags($new_instance['irw_images']);
 			$instance['irw_transition'] = strip_tags($new_instance['irw_transition']);
 			$instance['irw_transition_speed'] = strip_tags($new_instance['irw_transition_speed']);
+			$instance['irw_nofollow'] = strip_tags($new_instance['irw_nofollow']);
 			$instance['irw_new_window'] = strip_tags($new_instance['irw_new_window']);
 			return $instance;
 		}
 
 		function form($instance) {
 
-			$defaults = array( 'irw_images' => '', 'irw_new_window' => 'false' );
+			$defaults = array( 'irw_images' => '', 'irw_nofollow' => 'false', 'irw_new_window' => 'false' );
 			$instance = wp_parse_args((array) $instance, $defaults);
 
 			if ($instance) {
@@ -140,6 +150,7 @@
 				$irw_images = esc_attr($instance['irw_images']);
 				$irw_transition = esc_attr($instance['irw_transition']);
 				$irw_transition_speed = esc_attr($instance['irw_transition_speed']);
+				$irw_nofollow = esc_attr($instance['irw_nofollow']);
 				$irw_new_window = esc_attr($instance['irw_new_window']);
 			} ?>
 
@@ -173,6 +184,12 @@
 				</select>
 			</p>
 			<p>
+				<label for="<?php echo $this->get_field_name('irw_nofollow'); ?>">Apply nofollow: </label>
+				<select class="widefat" name="<?php echo $this->get_field_name('irw_nofollow'); ?>" id="<?php echo $this->get_field_id('irw_nofollow'); ?>">
+					<option <?php if($irw_nofollow == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
+					<option <?php if($irw_nofollow == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
+				</select>
+			</p><p>
 				<label for="<?php echo $this->get_field_name('irw_new_window'); ?>">Open in New tab/window: </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_new_window'); ?>" id="<?php echo $this->get_field_id('irw_new_window'); ?>">
 					<option <?php if($irw_new_window == "true") { echo 'selected="selected"'; } ?> value="true">True</option>

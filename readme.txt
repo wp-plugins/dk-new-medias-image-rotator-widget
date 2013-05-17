@@ -2,8 +2,8 @@
 Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
-Tested up to: 3.5
-Stable tag: 0.2.4
+Tested up to: 3.5.1
+Stable tag: 0.2.5
 
 Bare bones image rotator.
 
@@ -50,7 +50,7 @@ Here's how you can get started quickly.
 
 = How do I link an image in the rotator? =
 
-When selecting your image, make sure to add the click-through url to the 'Link URL' or 'Link Image To' field, and IRW will do the rest.
+To assign a link to an image, use the "Link To" option while in the Media Uploader.
 
 = Does this plugin require a Widget-ready theme? =
 
@@ -132,6 +132,12 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Bugfix - Height issue when using two or more irw widgets on the same page
 * Bugfix - Better compatibility for users upgrading from older versions
 
+= 0.2.5 =
+* Bugfix - No more disappearing links after adding/removing images or after changing the order of the images
+* New Feature - An option to add a nofollow attribute to image links
+* Optimization - Adds width and height attributes to the image elements
+* Optimization - Links now work with anchor tags instead of a javascript on click events
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -187,3 +193,7 @@ With version 0.2.3 you can open linked images in a new tab/window. This version 
 = 0.2.4 =
 
 You can now add images to your rotator using WordPress' new 3.5 Media Uploader. We've also added better responsive support and fixed a few bugs related to linking images.
+
+= 0.2.5 =
+
+Now you can set your links to nofollow. Also no more disappearing links! This was happening to some users when they tried to add or remove images and when changing the image order. This bug has been fixed. The plugin mark-up has been optimized and requires less javascript.
