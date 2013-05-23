@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.5.1
-Stable tag: 0.2.5
+Stable tag: 0.2.6
 
 Bare bones image rotator.
 
@@ -138,6 +138,9 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Optimization - Adds width and height attributes to the image elements
 * Optimization - Links now work with anchor tags instead of a javascript on click events
 
+= 0.2.6 =
+* Bugfix - PHP getimagesize() is now used with a local file path instead of a url.
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -197,3 +200,7 @@ You can now add images to your rotator using WordPress' new 3.5 Media Uploader. 
 = 0.2.5 =
 
 Now you can set your links to nofollow. Also no more disappearing links! This was happening to some users when they tried to add or remove images and when changing the image order. This bug has been fixed. The plugin mark-up has been optimized and requires less javascript.
+
+= 0.2.6 =
+
+This update aims to fix the 'Warning: getimagesize()' bug. PHP's getimagesize() is now used with a local file path instead of a url.

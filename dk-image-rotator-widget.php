@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.5
+	Version: 0.2.6
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -113,7 +113,8 @@
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
-					$sizes = getimagesize($a[0]);
+					$image_path = str_replace(get_bloginfo('url'), $_SERVER['DOCUMENT_ROOT'], $a[0]);
+					$sizes = getimagesize($image_path);
 					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
 						$nofollow = (isset($no_follow) && $no_follow === 'true') ? 'rel="nofollow"' : '';
 						echo '<li><a href="' . $a[1] . '" ' . $new_window . ' '  . $nofollow . '><img src="' . $a[0] . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '" class="pointer_cursor" /></a></li>';
