@@ -59,10 +59,11 @@ function irw_init() {
 			var i = 1;
 			var parent = jQuery(this).parent().find('.image_list');
 			jQuery(this).children('li').each(function(){
+				var img_link = (jQuery(this).attr('data-link').length > 0) ? '|' + jQuery(this).attr('data-link') : '';
 				if(i == 1) {
-					str += jQuery(this).attr('data-url');
+					str += jQuery(this).attr('data-url') + img_link;
 				} else {
-					str += ", " + jQuery(this).attr('data-url');
+					str += ", " + jQuery(this).attr('data-url') + img_link;
 				}
 				i++;
 			});
@@ -90,10 +91,11 @@ function rebinder() {
 		var n = 0;
 		var str = "";
 		jQuery(".active-widget .irw_images li").each(function(){
+			var img_link = (jQuery(this).attr('data-link').length > 0) ? '|' + jQuery(this).attr('data-link') : '';
 			if(n < 1) {
-				str += jQuery(this).attr('data-url');
+				str += jQuery(this).attr('data-url') + img_link;
 			} else {
-				str += ", " + jQuery(this).attr('data-url');
+				str += ", " + jQuery(this).attr('data-url') + img_link;
 			}
 			n++;
 		});
