@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.5.1
-Stable tag: 0.2.6
+Stable tag: 0.2.7
 
 Bare bones image rotator.
 
