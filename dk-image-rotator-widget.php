@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.6
+	Version: 0.2.7
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -97,12 +97,8 @@
 				$transition_speed = $instance['irw_transition_speed'];
 				$no_follow = $instance['irw_nofollow'];
 				$new_window = $instance['irw_new_window'];
-				/*if($new_window === "true") {
-					$new_window = 'target="_blank"';
-				} else {
-					$new_window = '';
-				}*/
 				$new_window = ($new_window === 'true') ? 'target="_blank"' : '';
+				$rand_img = $instance['irw_rand_img'];
 				echo $before_widget;
 				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
 				echo '<div class="irw-widget">';
@@ -110,6 +106,10 @@
 				echo '<input type="hidden" class="irw-transition-speed" value="' . $transition_speed . '" />';
 				echo '<input type="hidden" class="irw-new-window" value="' . $new_window . '" />';
 				echo '<ul class="irw-slider">';
+				// If Randomize Images is set to true, shuffle array
+				if($rand_img == 'true') {
+					shuffle($images);
+				}
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
@@ -138,6 +138,7 @@
 			$instance['irw_transition_speed'] = strip_tags($new_instance['irw_transition_speed']);
 			$instance['irw_nofollow'] = strip_tags($new_instance['irw_nofollow']);
 			$instance['irw_new_window'] = strip_tags($new_instance['irw_new_window']);
+			$instance['irw_rand_img'] = strip_tags($new_instance['irw_rand_img']);
 			return $instance;
 		}
 
@@ -153,6 +154,7 @@
 				$irw_transition_speed = esc_attr($instance['irw_transition_speed']);
 				$irw_nofollow = esc_attr($instance['irw_nofollow']);
 				$irw_new_window = esc_attr($instance['irw_new_window']);
+				$irw_rand_img = esc_attr($instance['irw_rand_img']);
 			} ?>
 
 			<h5 class="irw_header">Options</h5>
@@ -195,6 +197,12 @@
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_new_window'); ?>" id="<?php echo $this->get_field_id('irw_new_window'); ?>">
 					<option <?php if($irw_new_window == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
 					<option <?php if($irw_new_window == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
+				</select>
+			</p><p>
+				<label for="<?php echo $this->get_field_name('irw_rand_img'); ?>">Randomize order: </label>
+				<select class="widefat" name="<?php echo $this->get_field_name('irw_rand_img'); ?>" id="<?php echo $this->get_field_id('irw_rand_img'); ?>">
+					<option <?php if($irw_rand_img == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
+					<option <?php if($irw_rand_img == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
 				</select>
 			</p>
 
