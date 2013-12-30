@@ -141,6 +141,9 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.2.6 =
 * Bugfix - PHP getimagesize() is now used with a local file path instead of a url.
 
+= 0.2.7 =
+* New Feature - Added a feature to randomize the order of images. 
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -204,3 +207,7 @@ Now you can set your links to nofollow. Also no more disappearing links! This wa
 = 0.2.6 =
 
 This update aims to fix the 'Warning: getimagesize()' bug. PHP's getimagesize() is now used with a local file path instead of a url.
+
+= 0.2.7 =
+
+Added a feature to randomize the order of images. 
