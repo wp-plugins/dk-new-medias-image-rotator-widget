@@ -11,7 +11,9 @@ Bare bones image rotator.
 
 **Overview**
 
-A widgetized plugin that puts an image rotator on your theme. You can choose from three different transitions: linear, loop, and fade. In the widget settings you have the ability to upload/select images to add to the Image Rotator, and to drag & drop to reorder the order you want the images to appear. For a short video demonstrating the settings workflow, visit: http://www.youtube.com/watch?v=D7YMN8b0Olg
+A widgetized plugin that puts an image rotator on your theme. You can choose from three different transitions: linear, loop, and fade. In the widget settings you have the ability to upload/select images to add to the Image Rotator, and to drag & drop to reorder the order you want the images to appear. Watch the video below for a short demonstation of workflow. 
+
+http://www.youtube.com/watch?v=D7YMN8b0Olg
 
 **Features**
 
