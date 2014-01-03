@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.5.1
-Stable tag: 0.2.7
+Stable tag: 0.2.8
 
 Bare bones image rotator.
 
@@ -146,6 +146,9 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.2.7 =
 * New Feature - Added a feature to randomize the order of images. 
 
+= 0.2.8 =
+* Bug Fix - Switched $_SERVER['DOCUMENT_ROOT'] to get_home_path() to reduce getimagesize() errors
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -213,3 +216,7 @@ This update aims to fix the 'Warning: getimagesize()' bug. PHP's getimagesize() 
 = 0.2.7 =
 
 Added a feature to randomize the order of images. 
+
+= 0.2.8 =
+
+This update helps resolve the 'getimagesize' error that was appearing for some users.

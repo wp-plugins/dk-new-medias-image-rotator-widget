@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.7
+	Version: 0.2.8
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -81,6 +81,32 @@
 	 */
 	class DK_Image_Rotator_Widget extends WP_Widget {
 
+
+		/**
+       * From wp-admin/includes/file.php
+       *
+       * Get the absolute filesystem path to the root of the WordPress installation
+       *
+       * @since 1.5.0
+       *
+       * @uses get_option
+       * @return string Full filesystem path to the root of the WordPress installation
+       */
+		function get_home_path() {
+			$home = get_option( 'home' );
+			$siteurl = get_option( 'siteurl' );
+			if ( ! empty( $home ) && 0 !== strcasecmp( $home, $siteurl ) ) {
+				$wp_path_rel_to_home = str_ireplace( $home, '', $siteurl ); /* $siteurl - $home */
+				$pos = strripos( str_replace( '\\', '/', $_SERVER['SCRIPT_FILENAME'] ), trailingslashit( $wp_path_rel_to_home ) );
+				$home_path = substr( $_SERVER['SCRIPT_FILENAME'], 0, $pos );
+				$home_path = trailingslashit( $home_path );
+			} else {
+				$home_path = ABSPATH;
+			}
+
+			return str_replace( '\\', '/', $home_path );
+		}
+
 		function DK_Image_Rotator_Widget() {
 			$this->WP_Widget('dk-image-rotator-widget', 'Image Rotator Widget', array('description' => 'A widgetized, bare bones image rotator.'));
 		}
@@ -110,10 +136,12 @@
 				if($rand_img == 'true') {
 					shuffle($images);
 				}
+				// Set absolute path
+				$irw_abs_path = $this->get_home_path();
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
-					$image_path = str_replace(get_bloginfo('url'), $_SERVER['DOCUMENT_ROOT'], $a[0]);
+					$image_path = str_replace(get_bloginfo('url'), $irw_abs_path, $a[0]);
 					$sizes = getimagesize($image_path);
 					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
 						$nofollow = (isset($no_follow) && $no_follow === 'true') ? 'rel="nofollow"' : '';
