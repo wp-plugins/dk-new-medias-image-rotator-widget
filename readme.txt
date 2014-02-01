@@ -3,7 +3,7 @@ Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
 Tested up to: 3.5.1
-Stable tag: 0.2.8
+Stable tag: 0.2.9
 
 Bare bones image rotator.
 
@@ -149,6 +149,12 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.2.8 =
 * Bug Fix - Switched $_SERVER['DOCUMENT_ROOT'] to get_home_path() to reduce getimagesize() errors
 
+= 0.2.9 =
+* Bug Fix - Stripped out additional url slashes to prevent getimagesize() errors.
+* Bug Fix - Applied patch provided by deltafactory(thanks!) to help relieve mixed content warnings on ssl sites.
+* Bug Fix - Added auto width and heights to images, per Tukkan's suggestion, to fix a bug where images weren't appearing in IE.
+* Bug Fix - Changed the widget's z-index to 0 to prevent unwanted overlapping.
+
 == Upgrade Notice ==
 
 = 0.1.1 =
@@ -220,3 +226,7 @@ Added a feature to randomize the order of images.
 = 0.2.8 =
 
 This update helps resolve the 'getimagesize' error that was appearing for some users.
+
+= 0.2.9 =
+
+This update fixes several issues that were brought to our attention on the forums. Fixed some getimagesize() issues, SSL mixed content warning issues, Internet Explorer issues with displaying images, and an issue with the widget overlapping dropdown menus.

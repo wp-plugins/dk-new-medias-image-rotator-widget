@@ -25,7 +25,7 @@ function irw_init(element) {
 	var parent = widget.parent();
 	var transition = widget.children(".irw-transition").val();
 	var speed = widget.children(".irw-transition-speed").val();
-	widget.css({ 'position': 'relative', 'z-index': '1' });
+	widget.css({ 'position': 'relative', 'z-index': '0' });
 	slider.css({ 'z-index': '2' }).find("li img").css('max-width', 'none');
 	if(parent.width() > parent.height()) {
 		var n = parent.width();

@@ -3,7 +3,7 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.2.8
+	Version: 0.2.9
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
@@ -42,14 +42,11 @@
 		}
 				
 		wp_enqueue_script('jquery-ui-sortable');
-		wp_register_script('irw-js', path_join(WP_PLUGIN_URL, basename( dirname( __FILE__ ) ).'/js/main.js'), array('jquery','media-upload','thickbox'));
-		wp_enqueue_script('irw-js');
-		wp_register_script('irw-qtip', path_join(WP_PLUGIN_URL, basename( dirname( __FILE__ ) ).'/js/jquery.qtip.js'), array('jquery','media-upload','thickbox'));
-		wp_enqueue_script('irw-qtip');
+		wp_enqueue_script('irw-js', plugins_url( '', __FILE__ ) . '/js/main.js', array('jquery','media-upload','thickbox'));
+		wp_enqueue_script('irw-qtip', plugins_url( '', __FILE__ ) . '/js/jquery.qtip.js', array('jquery','media-upload','thickbox'));
 
 		// Styles
-		wp_register_style('irw-css', path_join(WP_PLUGIN_URL, basename( dirname( __FILE__ ) ).'/css/main.css'));
-		wp_enqueue_style('irw-css');
+		wp_enqueue_style('irw-css', plugins_url( '', __FILE__ ) .'/css/main.css' );
 	}
 
 	/**
@@ -58,15 +55,15 @@
 	function irw_widget_actions() {
 
 		// Scripts
-		wp_enqueue_script('jquery'); 
-		wp_register_script('jquery-imagesloaded', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)).'/js/jquery.imagesloaded.js'));
-		wp_enqueue_script('jquery-imagesloaded');
-		wp_register_script('irw-widget', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)).'/js/dk-image-rotator-widget.js'));
-		wp_enqueue_script('irw-widget');
+		wp_enqueue_script('jquery-imagesloaded', plugins_url( '', __FILE__ ) .'/js/jquery.imagesloaded.js', array( 'jquery' ) );
+		wp_enqueue_script('irw-widget', plugins_url( '', __FILE__ ) . '/js/dk-image-rotator-widget.js');
 
 		// Styles
-		wp_register_style('irw-widget', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)).'/css/dk-image-rotator-widget.css'));
-		wp_enqueue_style('irw-widget');
+		wp_enqueue_style('irw-widget', plugins_url( '', __FILE__ ) . '/css/dk-image-rotator-widget.css');
+	}
+
+	function irw_widget_init() {
+		register_widget("DK_Image_Rotator_Widget");
 	}
 
 	/**
@@ -74,7 +71,7 @@
 	 */
 	add_action('admin_enqueue_scripts', 'irw_admin_actions');
 	add_action('wp_enqueue_scripts', 'irw_widget_actions');
-	add_action('widgets_init', create_function('', 'register_widget("DK_Image_Rotator_Widget");'));
+	add_action('widgets_init', 'irw_widget_init' );
 
 	/**
 	 * DK_Image-Rotator-Widget Class
@@ -141,7 +138,7 @@
 				// Loop through images
 				foreach($images as $image) {
 					$a = explode("|", $image);
-					$image_path = str_replace(get_bloginfo('url'), $irw_abs_path, $a[0]);
+					$image_path = str_replace(get_bloginfo('url').'/', $irw_abs_path, $a[0]);
 					$sizes = getimagesize($image_path);
 					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
 						$nofollow = (isset($no_follow) && $no_follow === 'true') ? 'rel="nofollow"' : '';
@@ -172,7 +169,14 @@
 
 		function form($instance) {
 
-			$defaults = array( 'irw_images' => '', 'irw_nofollow' => 'false', 'irw_new_window' => 'false' );
+			$defaults = array(
+				'irw_title' => '',
+				'irw_images' => '',
+				'irw_transition' => 'linear',
+				'irw_transition_speed' => 1,
+				'irw_nofollow' => 'false',
+				'irw_new_window' => 'false'
+			); 
 			$instance = wp_parse_args((array) $instance, $defaults);
 
 			if ($instance) {
