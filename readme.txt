@@ -2,8 +2,8 @@
 Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
-Tested up to: 3.5.1
-Stable tag: 0.2.9
+Tested up to: 3.9.1
+Stable tag: 0.3.0
 
 Bare bones image rotator.
 
@@ -155,78 +155,68 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Bug Fix - Added auto width and heights to images, per Tukkan's suggestion, to fix a bug where images weren't appearing in IE.
 * Bug Fix - Changed the widget's z-index to 0 to prevent unwanted overlapping.
 
+= 0.3.0 =
+* Bug Fix - Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
+
 == Upgrade Notice ==
 
-= 0.1.1 =
-Works with WordPress 3.3. This version fixes the bug that broke the "Insert into Post" button on the new/edit post pages. 
+= 0.3.0 =
+Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
 
-= 0.1.2 =
-Fixes a bug in 3.3 that adds an image's thumbnail url instead of the original url, to the widget.
+= 0.2.9 =
+This update fixes several issues that were brought to our attention on the forums. Fixed some getimagesize() issues, SSL mixed content warning issues, Internet Explorer issues with displaying images, and an issue with the widget overlapping dropdown menus.
+
+= 0.2.8 =
+This update helps resolve the 'getimagesize' error that was appearing for some users.
+
+= 0.2.7 =
+Added a feature to randomize the order of images.
+
+= 0.2.6 =
+This update aims to fix the 'Warning: getimagesize()' bug. PHP's getimagesize() is now used with a local file path instead of a url.
+
+= 0.2.5 =
+Now you can set your links to nofollow. Also no more disappearing links! This was happening to some users when they tried to add or remove images and when changing the image order. This bug has been fixed. The plugin mark-up has been optimized and requires less javascript.
+
+= 0.2.4 =
+You can now add images to your rotator using WordPress' new 3.5 Media Uploader. We've also added better responsive support and fixed a few bugs related to linking images.
+
+= 0.2.3 =
+With version 0.2.3 you can open linked images in a new tab/window. This version also fixes the issue where some images were linking to undefined links. Also, now a users cursor will only turn to a pointer if the image they're hovering over is linked. Also fixes a fade transition speed bug. Update now!
+
+= 0.2.2 =
+This update fixes the transition speed setting for ALL transitions. I have also fixed a few bugs related to linking images. The imagesloaded.js library included in the plugin has been updated to the latest version.
+
+= 0.2.1 =
+This update solves a non-harmful bug that showed a warning notice while activating the plugin.
+
+= 0.2 =
+Those of you having trouble with linking images, please update now.
+
+= 0.1.9 =
+If you were having issues making your images linkable, update now. The problem has been fixed.
+
+= 0.1.8 =
+This update fixes a bug some were experiencing with adding links to images.
+
+= 0.1.7 =
+This update fixes a WordPress 3.4.1 bug and allows you to make images in your rotator linkable!
+
+= 0.1.6 =
+Fixed 3.4 a bug - wouldn't send the image url to the widget
+Added Transition Speed to the widget settings
+
+= 0.1.5 =
+Fixed installation bug
+
+= 0.1.4 =
+Added optional widget setting "title" and fixed localization bug with "Send the Image Rotator Widget" button
 
 = 0.1.3 =
 Added ability to use the "From URL" tab on the Media Upload when selecting an image.
 
-= 0.1.4 =
+= 0.1.2 =
+Fixes a bug in 3.3 that adds an image's thumbnail url instead of the original url, to the widget.
 
-Added optional widget setting "title" and fixed localization bug with "Send the Image Rotator Widget" button
-
-= 0.1.5 =
-
-Fixed installation bug
-
-= 0.1.6 =
-
-Fixed 3.4 a bug - wouldn't send the image url to the widget
-Added Transition Speed to the widget settings
-
-= 0.1.7 =
-
-This update fixes a WordPress 3.4.1 bug and allows you to make images in your rotator linkable!
-
-= 0.1.8 =
-
-This update fixes a bug some were experiencing with adding links to images.
-
-= 0.1.9 =
-
-If you were having issues making your images linkable, update now. The problem has been fixed.
-
-= 0.2 =
-
-Those of you having trouble with linking images, please update now.
-
-= 0.2.1 =
-
-This update solves a non-harmful bug that showed a warning notice while activating the plugin.
-
-= 0.2.2 =
-
-This update fixes the transition speed setting for ALL transitions. I have also fixed a few bugs related to linking images. The imagesloaded.js library included in the plugin has been updated to the latest version.
-
-= 0.2.3 =
-
-With version 0.2.3 you can open linked images in a new tab/window. This version also fixes the issue where some images were linking to undefined links. Also, now a users cursor will only turn to a pointer if the image they're hovering over is linked. Also fixes a fade transition speed bug. Update now!
-
-= 0.2.4 =
-
-You can now add images to your rotator using WordPress' new 3.5 Media Uploader. We've also added better responsive support and fixed a few bugs related to linking images.
-
-= 0.2.5 =
-
-Now you can set your links to nofollow. Also no more disappearing links! This was happening to some users when they tried to add or remove images and when changing the image order. This bug has been fixed. The plugin mark-up has been optimized and requires less javascript.
-
-= 0.2.6 =
-
-This update aims to fix the 'Warning: getimagesize()' bug. PHP's getimagesize() is now used with a local file path instead of a url.
-
-= 0.2.7 =
-
-Added a feature to randomize the order of images. 
-
-= 0.2.8 =
-
-This update helps resolve the 'getimagesize' error that was appearing for some users.
-
-= 0.2.9 =
-
-This update fixes several issues that were brought to our attention on the forums. Fixed some getimagesize() issues, SSL mixed content warning issues, Internet Explorer issues with displaying images, and an issue with the widget overlapping dropdown menus.
+= 0.1.1 =
+Works with WordPress 3.3. This version fixes the bug that broke the "Insert into Post" button on the new/edit post pages.

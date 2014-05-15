@@ -3,11 +3,11 @@ jQuery(function($){
 	if($.browser.msie && $.browser.version == "8.0") {
 		ie8 = true;
 	} else if($.browser.msie && $.browser.version == "7.0") {
-		$('body').addClass('ie7');
+		jQuery('body').addClass('ie7');
 	}
 
-	$(".irw-widget").each(function(){
-		irw_init($(this));
+	jQuery(".irw-widget").each(function(){
+		irw_init(jQuery(this));
 	});
 
 });
