@@ -3,11 +3,11 @@
 	Plugin Name: DK New Media's Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.3.0
+	Version: 0.3.1
 	Author: Stephen Coley, Douglas Karr
 	Author URI: http://www.dknewmedia.com
 
-	Copyright 2011  DK New Media  (email : doug@dknewmedia.com)
+	Copyright 2014  DK New Media  (email : doug@dknewmedia.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 

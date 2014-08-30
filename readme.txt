@@ -2,26 +2,28 @@
 Contributors: srcoley, douglaskarr
 Tags: jquery, widget, widgets, image, images, rotator, slider
 Requires at least: 2.7
-Tested up to: 3.9.1
-Stable tag: 0.3.0
+Tested up to: 3.9.2
+Stable tag: 0.3.1
 
-Bare bones image rotator.
+A simple widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
 
 == Description ==
 
 **Overview**
 
-A widgetized plugin that puts an image rotator on your theme. You can choose from three different transitions: linear, loop, and fade. In the widget settings you have the ability to upload/select images to add to the Image Rotator, and to drag & drop to reorder the order you want the images to appear. Watch the video below for a short demonstation of workflow. 
+A widgetized plugin that puts an image rotator on your theme. You can choose from three different transitions: linear, loop, and fade. In the widget settings you have the ability to set the transition speed, apply nofollow if linked, open links in a new window, upload/select images to add to the Image Rotator, and to drag & drop to reorder the order you want the images to appear. Or you can set randomize and each time the widget loads it will start with a random image and work its way through your array. Watch the video below for a short demonstration of workflow. 
 
 http://www.youtube.com/watch?v=D7YMN8b0Olg
 
 **Features**
 
-* Use the WordPress 3.5 Media Uploader to upload or select images
+* Uses the WordPress 3.5 Media Uploader to upload or select images
 * Make images click through to a link
 * Choose from three different smooth transitions
 * Set a transition speed
 * Drag & drop to order images in whichever way you like
+* Apply nofollow if your image is added with a link in the media uploader
+* Set to a new window if your image is added with a link in the media uploader
 * Use the Image Rotator Widget multiple times on the same page
 * Widgetized, so you can rotate your images anywhere 
 * Works with modern versions of Chrome, Safari, Firefox, and Internet Explorer
@@ -158,7 +160,15 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.3.0 =
 * Bug Fix - Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
 
+= 0.3.1 = 
+
+Correction of a jQuery reference TypeError.
+
 == Upgrade Notice ==
+
+= 0.3.1 =
+
+Correction of a jQuery reference TypeError.
 
 = 0.3.0 =
 Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
