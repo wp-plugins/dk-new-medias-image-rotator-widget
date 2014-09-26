@@ -7,7 +7,7 @@
 	Author: Douglas Karr, Stephen Coley
 	Author URI: http://www.dknewmedia.com
 
-	Copyright 2014  DK New Media  (email : doug@dknewmedia.com)
+	Copyright 2014  DK New Media  (email : info@dknewmedia.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
