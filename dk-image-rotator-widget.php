@@ -4,7 +4,7 @@
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
 	Version: 0.3.2
-	Author: Stephen Coley, Douglas Karr
+	Author: Douglas Karr, Stephen Coley
 	Author URI: http://www.dknewmedia.com
 
 	Copyright 2014  DK New Media  (email : doug@dknewmedia.com)
