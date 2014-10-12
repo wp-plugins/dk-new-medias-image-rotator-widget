@@ -110,10 +110,11 @@ function qtip_init() {
 	jQuery(".irw_images li span:not(.button)").each(function(e,n){
 		jQuery(this).text(get_truncated_filename(jQuery(this).text(), true));
 		var src = jQuery(this).parent().attr("data-url");
+		var alt = jQuery(this).parent().attr("data-alt");
 
 		jQuery(this).qtip({
 			content: {
-				text: '<center><img src="' + src + '" /></center>',
+				text: '<center><img src="' + src + '" alt="' + alt + '" /></center>',
 				prerender: true
 			},
 			show: 'mouseover',
@@ -182,7 +183,7 @@ function upload_handler(imgurl, imglink, imgalt) {
 	var n = jQuery('.active-widget .irw_images li').length;
 	var parent = jQuery(".active-widget .irw_images").parent().find('.image_list');
 	jQuery('.active-widget .add-image-button').parent().removeClass('alert');
-	jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "' data-link='" + imglink + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
+	jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "' data-link='" + imglink + "' data-alt='" + imgalt + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
 	if(n > 0) {
 		var list = jQuery('.active-widget .image_list').val();
 		var img = imgurl + "|" + imglink + "|" + imgalt;

@@ -3,8 +3,8 @@ Contributors: douglaskarr, srcoley
 Tags: jquery, widget, widgets, image, images, rotator, slider, logo
 Requires at least: 2.7
 Tested up to: 4.0.0
-Stable tag: 0.3.3
-Version: 0.3.3
+Stable tag: 0.3.4
+Version: 0.3.4
 License: GPLv2
 
 A sidebar widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
@@ -171,7 +171,13 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 = 0.3.3 =
 * Enhanced the plugin to display the alt text from the WordPress Media Uploader
 
+= 0.3.4 =
+Corrected a minor issue that wasn’t populating the alt tag correctly. Requires you to remove and add the images in order to display the alt tags properly.
+
 == Upgrade Notice ==
+
+= 0.3.4 =
+Corrected a minor issue that wasn’t populating the alt tag correctly. Requires you to remove and add the images in order to display the alt tags properly.
 
 = 0.3.3 =
 Enhanced the plugin to display the alt text from the WordPress Media Uploader
