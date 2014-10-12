@@ -4,6 +4,8 @@ Tags: jquery, widget, widgets, image, images, rotator, slider, logo
 Requires at least: 2.7
 Tested up to: 4.0.0
 Stable tag: 0.3.3
+Version: 0.3.3
+License: GPLv2
 
 A sidebar widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
 
