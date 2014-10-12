@@ -174,7 +174,7 @@ function apply_insert_button_filter(iframejq) {
 	}, 1000);
 }
 
-function upload_handler(imgurl, imglink) {
+function upload_handler(imgurl, imglink, imgalt) {
 	
 	if(imglink == false) {
 		imglink = "";
@@ -185,10 +185,10 @@ function upload_handler(imgurl, imglink) {
 	jQuery('.active-widget .irw_images').append("<li data-url='" + imgurl + "' data-link='" + imglink + "'><span>" + get_truncated_filename(imgurl, true) + "</span> <button class='button irw_button'> - </button></li>");
 	if(n > 0) {
 		var list = jQuery('.active-widget .image_list').val();
-		var img = imgurl + "|" + imglink;
+		var img = imgurl + "|" + imglink + "|" + imgalt;
 		parent.val(list + ", " + img);
 	} else {
-		var img = imgurl + "|" + imglink;
+		var img = imgurl + "|" + imglink + "|" + imgalt;
 		parent.val(img);
 	}
 	irw_init();
@@ -200,6 +200,7 @@ function media_dialog(e) {
 
 	wp.media.editor.send.attachment = function(props, attachment) {
 		var imgUrl = attachment.url;
+		var imgAlt = attachment.alt;
 		if(props.link == "file") {
 			var imgLink = attachment.url;
 		} else if(props.link == "custom") {
@@ -209,7 +210,7 @@ function media_dialog(e) {
 		} else {
 			var imgLink = false;
 		}
-		upload_handler(imgUrl, imgLink);
+		upload_handler(imgUrl, imgLink, imgAlt);
 		wp.media.editor.send.attachment = send_attachment_bkp;
 	}
 	wp.media.editor.open(e/*'#' + button.attr('id')*/);

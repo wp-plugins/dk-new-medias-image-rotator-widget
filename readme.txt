@@ -1,9 +1,9 @@
 === Image Rotator Widget ===
-Contributors: srcoley, douglaskarr
-Tags: jquery, widget, widgets, image, images, rotator, slider
+Contributors: douglaskarr, srcoley 
+Tags: jquery, widget, widgets, image, images, rotator, slider, logo
 Requires at least: 2.7
 Tested up to: 4.0.0
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 
 A sidebar widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
 
@@ -161,21 +161,23 @@ You can ask questions [Here](http://www.dknewmedia.com/#contact "DK New Media Co
 * Bug Fix - Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
 
 = 0.3.1 = 
-
-Correction of a jQuery reference TypeError.
+* Correction of a jQuery reference TypeError.
 
 = 0.3.2 =
+* Correction of conflict Javascript, transition issues and array treatment that was looping can causing page freezes.
 
-Correction of conflict Javascript, transition issues and array treatment that was looping can causing page freezes.
+= 0.3.3 =
+* Enhanced the plugin to display the alt text from the WordPress Media Uploader
 
 == Upgrade Notice ==
 
-= 0.3.2 =
+= 0.3.3 =
+Enhanced the plugin to display the alt text from the WordPress Media Uploader
 
+= 0.3.2 =
 Correction of conflict Javascript, transition issues and array treatment that was looping can causing page freezes.
 
 = 0.3.1 =
-
 Correction of a jQuery reference TypeError.
 
 = 0.3.0 =

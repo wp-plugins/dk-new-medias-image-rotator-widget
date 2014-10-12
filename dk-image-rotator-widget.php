@@ -1,10 +1,10 @@
 <?php
 	/**
-	Plugin Name: DK New Media's Image Rotator Widget
+	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
-	Description: A sidebar widget for rotating images utilizing jQuery. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.3.2
-	Author: Douglas Karr, Stephen Coley
+	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
+	Version: 0.3.3
+	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
 
 	Copyright 2014  DK New Media  (email : info@dknewmedia.com)
@@ -142,9 +142,9 @@
 					$sizes = getimagesize($image_path);
 					if(count($a) > 1 && $a[0] != "" && $a[1] != "") {
 						$nofollow = (isset($no_follow) && $no_follow === 'true') ? 'rel="nofollow"' : '';
-						echo '<li><a href="' . $a[1] . '" ' . $new_window . ' '  . $nofollow . '><img src="' . $a[0] . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '" class="pointer_cursor" /></a></li>';
+						echo '<li><a href="' . $a[1] . '" ' . $new_window . ' '  . $nofollow . '><img src="' . $a[0] . '" alt="' .$a[2]. '" width="' . $sizes[0] . '" height="' . $sizes[1] . '" class="pointer_cursor" /></a></li>';
 					} else {
-						echo '<li><img src="' . $a[0] . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '"/></li>';
+						echo '<li><img src="' . $a[0] . '" alt="' .$a[2]. '" width="' . $sizes[0] . '" height="' . $sizes[1] . '"/></li>';
 					}
 				}
 				echo '</ul></div>';
@@ -251,12 +251,14 @@
 							if(count($a) > 1) {
 								$image = $a[0];
 								$image_link = $a[1];
+								$image_alt = $a[2];
 							} else {
 								$image = $a[0];
 								$image_link = "";
+								$image_alt = "";
 							}
 						?>
-						<li data-url="<?php echo $image; ?>" data-link="<?php echo $image_link; ?>" ><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
+						<li data-url="<?php echo $image; ?>" data-link="<?php echo $image_link; ?>" data-alt="<?php echo $image_alt; ?>"><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
 					<?php endforeach; ?>
 				<?php // Else ?>
 				<?php else : ?>
