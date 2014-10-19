@@ -3,7 +3,7 @@
 	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 0.3.4
+	Version: 1.0.0
 	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
 
@@ -22,8 +22,6 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 	*/
-
-
 	
 	/**
 	 * Script & stype loader for widget.php
@@ -32,7 +30,7 @@
 		if('widgets.php' != $hook) {
 			return;
 		}
-		// Scripts
+
 		if(function_exists('wp_enqueue_media')) {
 			wp_enqueue_media();
 		} else {
@@ -44,8 +42,6 @@
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('irw-js', plugins_url( '', __FILE__ ) . '/js/main.js', array('jquery','media-upload','thickbox'));
 		wp_enqueue_script('irw-qtip', plugins_url( '', __FILE__ ) . '/js/jquery.qtip.js', array('jquery','media-upload','thickbox'));
-
-		// Styles
 		wp_enqueue_style('irw-css', plugins_url( '', __FILE__ ) .'/css/main.css' );
 	}
 
@@ -54,11 +50,8 @@
 	 */
 	function irw_widget_actions() {
 
-		// Scripts
 		wp_enqueue_script('jquery-imagesloaded', plugins_url( '', __FILE__ ) .'/js/jquery.imagesloaded.js', array( 'jquery' ) );
 		wp_enqueue_script('irw-widget', plugins_url( '', __FILE__ ) . '/js/dk-image-rotator-widget.js');
-
-		// Styles
 		wp_enqueue_style('irw-widget', plugins_url( '', __FILE__ ) . '/css/dk-image-rotator-widget.css');
 	}
 
@@ -77,7 +70,6 @@
 	 * DK_Image-Rotator-Widget Class
 	 */
 	class DK_Image_Rotator_Widget extends WP_Widget {
-
 
 		/**
        * From wp-admin/includes/file.php
@@ -112,7 +104,6 @@
 			extract($args, EXTR_SKIP);
 			$image_list = $instance['irw_images'];
 
-			// If $image_list is set and not empty...
 			if(isset($image_list) && $image_list != "") {
 				$images = explode(", ", $image_list);
 				$irw_title = apply_filters('widget_title', $instance['irw_title']);
@@ -129,13 +120,13 @@
 				echo '<input type="hidden" class="irw-transition-speed" value="' . $transition_speed . '" />';
 				echo '<input type="hidden" class="irw-new-window" value="' . $new_window . '" />';
 				echo '<ul class="irw-slider">';
-				// If Randomize Images is set to true, shuffle array
+
 				if($rand_img == 'true') {
 					shuffle($images);
 				}
-				// Set absolute path
+
 				$irw_abs_path = $this->get_home_path();
-				// Loop through images
+
 				foreach($images as $image) {
 					$a = explode("|", $image);
 					$image_path = str_replace(get_bloginfo('url').'/', $irw_abs_path, $a[0]);
@@ -149,7 +140,7 @@
 				}
 				echo '</ul></div>';
 				echo $after_widget;
-			// Else
+
 			} else {
 				echo '<p>You must add an image in the Widget Settings.</p>';
 			}
@@ -241,11 +232,11 @@
 			<h5 class="irw_header">Images</h5>
 			
 			<ul class="irw_images">
-				<?php // If there are images, loop through them and echo out a list item for each one ?>
+
 				<?php if(isset($irw_images) && $irw_images != "") : ?>
-					<?php $images = explode(", ", $irw_images); // str to array ?>
-					<?php $i = 1; // counter ?>
-					<?php foreach($images as $image) : // Loop through images ?>
+					<?php $images = explode(", ", $irw_images); ?>
+					<?php $i = 1; ?>
+					<?php foreach($images as $image) : ?>
 						<?php
 							$a = explode("|", $image);
 							if(count($a) > 1) {
@@ -260,7 +251,7 @@
 						?>
 						<li data-url="<?php echo $image; ?>" data-link="<?php echo $image_link; ?>" data-alt="<?php echo $image_alt; ?>"><span><?php $arr = explode("/", $image); $i = count($arr); echo $arr[$i - 1]; ?></span> <button class="button irw_button"> - </button></li>
 					<?php endforeach; ?>
-				<?php // Else ?>
+
 				<?php else : ?>
 					<?php $images = array(); ?>
 				<?php endif; ?>
