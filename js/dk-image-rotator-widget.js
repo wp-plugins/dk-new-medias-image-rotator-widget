@@ -184,13 +184,6 @@ function irw_load_loop(img, widget, slider, speed) {
 			image_set_height = height_array[i];
 		}
 	});
-	/* jQuery(img.images).each(function(i, value){
-		width_array[i] = jQuery(value.img).width();
-		height_array[i] = jQuery(value.img).height();
-		if(height_array[i] > image_set_height) {
-			image_set_height = height_array[i];
-		}
-	}); */
 	widget.height(image_set_height + "px");
 	var slider_width = 0;
 	for(i=0;i < width_array.length;i++) {

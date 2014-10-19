@@ -3,7 +3,7 @@
 	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 1.0.0
+	Version: 1.0.1
 	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
 
@@ -196,17 +196,19 @@
 			</p>
 			<p>
 				<label for="<?php echo $this->get_field_name('irw_transition_speed'); ?>">Transition Speed: </label>
-				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition_speed'); ?>" id="<?php echo $this->get_field_id('irw_transition_speed'); ?>">
-					<option <?php if($irw_transition_speed == "1") { echo 'selected="selected"'; } ?> value="1">1 - Fastest</option>
-					<option <?php if($irw_transition_speed == "2") { echo 'selected="selected"'; } ?> value="2">2</option>
-					<option <?php if($irw_transition_speed == "3") { echo 'selected="selected"'; } ?> value="3">3</option>
-					<option <?php if($irw_transition_speed == "4") { echo 'selected="selected"'; } ?> value="4">4</option>
-					<option <?php if($irw_transition_speed == "5") { echo 'selected="selected"'; } ?> value="5">5</option>
-					<option <?php if($irw_transition_speed == "6") { echo 'selected="selected"'; } ?> value="6">6</option>
-					<option <?php if($irw_transition_speed == "7") { echo 'selected="selected"'; } ?> value="7">7</option>
-					<option <?php if($irw_transition_speed == "8") { echo 'selected="selected"'; } ?> value="8">8</option>
-					<option <?php if($irw_transition_speed == "9") { echo 'selected="selected"'; } ?> value="9">9</option>
-					<option <?php if($irw_transition_speed == "10") { echo 'selected="selected"'; } ?> value="10">10 - Slowest</option>
+				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition_speed'); ?>" id="<?php echo $this->get_field_id('irw_transition_speed'); ?>">				
+					<?php
+							$k = 1;
+							while ($k <= 20):
+								echo '<option';
+								if ($irw_transition_speed == $k) { echo ' selected="selected"'; }
+								echo ' value="'.$k.'"> '.$k;
+								if ($k == 1 ) { echo ' Fastest'; }
+								if ($k == 20 ) { echo ' Slowest';	}					
+								echo '</option>';
+								$k = $k + 1;
+							endwhile;
+					?>
 				</select>
 			</p>
 			<p>
