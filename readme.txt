@@ -1,8 +1,8 @@
 === Image Rotator Widget ===
 Contributors: douglaskarr, srcoley 
 Tags: jquery, widget, widgets, image, images, rotator, slider, logo, transition, sidebar
-Stable tag: 1.0.1
-Version: 1.0.1
+Stable tag: 1.0.2
+Version: 1.0.2
 Requires at least: 2.7
 Tested up to: 4.0
 
@@ -74,6 +74,11 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 6. Drag & Drop images to sort, right in the widget settings.
 
 == Changelog ==
+
+= 1.0.2 =
+Release Date: October 19, 2014
+
+* Enhancement: Adjustment of speed transition to allow for slower transitions.
 
 = 1.0.1 =
 Release Date: October 19, 2014

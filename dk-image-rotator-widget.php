@@ -3,7 +3,7 @@
 	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 1.0.1
+	Version: 1.0.2
 	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
 

@@ -63,8 +63,8 @@ function irw_init(element) {
  * Speed Modifier
  */
 function speed_modifier(mod, speed) {
-	if(mod > 0 && mod < 11) {
-		var r = speed * (mod / 10);
+	if(mod > 0 && mod < 21) {
+		var r = speed * (mod / 20);
 		return speed + (r*2);
 	} else {
 		return speed;
@@ -99,7 +99,7 @@ function irw_load_fade(img, widget, slider, speed) {
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', margin: "0px" });
 	setTimeout(function(){
 		irw_fade(img, widget, slider, speed);
-	}, speed_modifier(speed, 2000));
+	}, speed_modifier(speed, 5000));
 }
 
 function irw_fade(img, widget, slider, speed) {
@@ -110,12 +110,12 @@ function irw_fade(img, widget, slider, speed) {
 		var next = active.next();
 	}
 
-	active.fadeOut(speed_modifier(speed, 1000), "linear", function() {
+	active.fadeOut(speed_modifier(speed, 2500), "linear", function() {
 		active.removeClass("active");
-		next.addClass("active").fadeIn(speed_modifier(speed, 1000), "linear", function(){
+		next.addClass("active").fadeIn(speed_modifier(speed, 2500), "linear", function(){
 			setTimeout(function(){
 				irw_fade(img, widget, slider, speed);
-			}, speed_modifier(speed, 2000));	
+			}, speed_modifier(speed, 5000));	
 		});
 	});
 }
@@ -147,7 +147,7 @@ function irw_load_linear(img, widget, slider, speed) {
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', width: slider_width + "px", margin: "0px", position: 'relative'  });
 
 	var w = slider_width - widget.width();
-	var duration = speed_modifier(speed, slider_width * 20);
+	var duration = speed_modifier(speed, slider_width * 40);
 
 	irw_linear(w, slider, duration);
 }
@@ -195,8 +195,8 @@ function irw_load_loop(img, widget, slider, speed) {
 	widget.removeClass('loading').children('.irw-slider').css({ visibility: 'visible', width: slider_width + "px", margin: "0px", position: 'relative'  });
 
 	var w = slider_width - widget.width();
-	var first_duration = speed_modifier(speed, w * 30);
-	var duration = speed_modifier(speed, slider_width * 30);
+	var first_duration = speed_modifier(speed, w * 75);
+	var duration = speed_modifier(speed, slider_width * 75);
 
 	slider.animate({
 		left: "-" + w + "px"
