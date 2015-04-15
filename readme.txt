@@ -1,10 +1,10 @@
 === Image Rotator Widget ===
 Contributors: douglaskarr, srcoley 
 Tags: jquery, widget, widgets, image, images, rotator, slider, logo, transition, sidebar
-Stable tag: 1.0.2
-Version: 1.0.2
+Stable tag: 1.0.3
+Version: 1.0.3
 Requires at least: 2.7
-Tested up to: 4.0
+Tested up to: 4.1.1
 
 A sidebar widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
 
@@ -16,7 +16,7 @@ http://www.youtube.com/watch?v=D7YMN8b0Olg
 
 Features include:
 
-* Uses the WordPress 3.5 Media Uploader to upload or select images
+* Uses the WordPress Media Uploader to upload or select images
 * Options to make the image link to another page and even in a new window
 * Choose from three different smooth transitions
 * Set the transition speed
@@ -28,7 +28,7 @@ Features include:
 
 = About =
 
-The Image Rotator Widget was written by [Stephen Coley](http://coley.co) of [DK New Media](http://dknewmedia.com)
+The Image Rotator Widget was originally developed by Stephen Coley for [DK New Media](http://dknewmedia.com), the makers of [CircuPress] (http://www.circupress.com/), a newsletter plugin for WordPress, and publishers of the [Marketing Technology Blog] (https://www.marketingtechblog.com/).
 
 == Installation ==
 
@@ -76,134 +76,108 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 == Changelog ==
 
 = 1.0.2 =
-Release Date: October 19, 2014
-
 * Enhancement: Adjustment of speed transition to allow for slower transitions.
 
 = 1.0.1 =
-Release Date: October 19, 2014
-
 * Enhancement: Updated speed transition to allow for slower transitions.
 
-
 = 1.0.0 =
-Release Date: October 19, 2014
-
 * Enhancement: Updated instructions and Changelog for the widget.
 * Bug Fix: Some reports of line 116 not being remarked out were reported. Removed all remarks.
 
 = 0.3.4 =
-
 * Bug Fix: Corrected a minor issue that wasn’t populating the alt tag correctly. Requires you to remove and add the images in order to display the alt tags properly.
 
 = 0.3.3 =
-
 * Enhancement: Enhanced the plugin to display the alt text from the WordPress Media Uploader
 
 = 0.3.2 =
-
 * Bug Fix: Correction of conflict Javascript, transition issues and array treatment that was looping can causing page freezes.
 
 = 0.3.1 = 
-
 * Bug Fix: Correction of a jQuery reference TypeError.
 
 = 0.3.0 =
-
 * Bug Fix: Correction of a jQuery reference TypeError: 'undefined' is not a function (evaluating '$(document)')
 
 = 0.2.9 =
-
 * Bug Fix: Stripped out additional url slashes to prevent getimagesize() errors.
 * Bug Fix: Applied patch provided by deltafactory(thanks!) to help relieve mixed content warnings on ssl sites.
 * Bug Fix: Added auto width and heights to images, per Tukkan's suggestion, to fix a bug where images weren't appearing in IE.
 * Bug Fix: Changed the widget's z-index to 0 to prevent unwanted overlapping.
 
 = 0.2.8 =
-
 * Bug Fix: Switched $_SERVER['DOCUMENT_ROOT'] to get_home_path() to reduce getimagesize() errors
 
 = 0.2.7 =
-
 * Enhancement: Added a feature to randomize the order of images. 
 
 = 0.2.6 =
-
 * Bugfix: PHP getimagesize() is now used with a local file path instead of a url.
 
 = 0.2.5 =
-
 * Enhancement: An option to add a nofollow attribute to image links
 * Enhancement: Adds width and height attributes to the image elements
 * Enhancement: Links now work with anchor tags instead of a javascript on click events
 * Bugfix: No more disappearing links after adding/removing images or after changing the order of the images
 
 = 0.2.4 =
-
 * Enhancement: Now uses the 3.5 Media Uploader
 * Enhancement: Added responsive styles as suggested: http://wordpress.org/support/topic/responsive-css?replies=2
 * Bugfix: Height issue when using two or more irw widgets on the same page
 * Bugfix: Better compatibility for users upgrading from older versions
 
 = 0.2.3 =
-
 * Enhancement: Added the ability to open links in new a tab/window.
 * Bugfix: Some images were clicking through to a link that was undefined. This has been fixed.
 * Bugfix: Mouse now only turns to the pointer when an image is linked.
 * Bugfix: Transition speed for the fade transition now works properly.
 
 = 0.2.2 = 
-
 * Enhancement: Now includes the latest release of imagesloaded.js
 * Bugfix: Transition ppeed has been fixed for all three transitions
 * Bugfix: Images set to link to themselves would not work
 
 = 0.2.1 =
-
 * Bugfix: Fixes error that shows "unexpected output" when activating.
 
 = 0.2 =
-
 * Bugfix: 0.1.9 bad release.
 
 = 0.1.9 =
-
 * Bugfix: 0.1.8 bad release.
 
 = 0.1.8 =
-
 * Bugfix: Fixes bug with linking images
 
 = 0.1.7 =
-
 * Enhancement: Added ability to make images in the rotator linkable
 * Bugfix: 3.4.1 bug
 
 = 0.1.6 =
-
 * Enhancement: Added Transition Speed to the widget settings
 * Bugfix: Fixed 3.4 a bug - wouldn't send the image url to the widget
 
 = 0.1.5 =
-
 * Bugfix: Fixed installation bug
 
 = 0.1.4 =
-
 * Enhancement: Added optional widget setting "title".
 * Bugfix: Fixed localization bug with "Send the Image Rotator Widget" button
 
 = 0.1.3 =
-
 * Enhancement: Added ability to use the "From URL" tab on the Media Upload when selecting an image.
 
 = 0.1.2 =
-
 * Enhancement: WordPress 3.3 fix
 
 = 0.1.1 =
-
 * readme.txt updates
 * Bugfix: Only run widget's scripts on the widget.php page
 
+= 0.1.0 =
 * Initial release
+
+== Upgrade Notice ==
+= 1.0.3 =
+* Corrected an issue with the animation in fade and loop where some sites were just seeing the loading gif with no image showing up.
