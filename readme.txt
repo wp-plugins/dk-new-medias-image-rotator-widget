@@ -28,7 +28,7 @@ Features include:
 
 = About =
 
-The Image Rotator Widget was originally developed by Stephen Coley for [DK New Media](http://dknewmedia.com), the makers of [CircuPress] (http://www.circupress.com/), a newsletter plugin for WordPress, and publishers of the [Marketing Technology Blog] (https://www.marketingtechblog.com/).
+The Image Rotator Widget was originally developed by Stephen Coley for [DK New Media](http://dknewmedia.com), the makers of [CircuPress](http://www.circupress.com/), a newsletter plugin for WordPress, and publishers of the [Marketing Technology Blog](https://www.marketingtechblog.com/).
 
 == Installation ==
 
