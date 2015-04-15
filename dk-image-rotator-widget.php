@@ -3,7 +3,7 @@
 	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 1.0.3
+	Version: 1.0.4
 	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
 
@@ -102,7 +102,7 @@
 
 		function widget($args, $instance) {
 			extract($args, EXTR_SKIP);
-			$image_list = $instance['irw_images'];
+			$image_list = ( isset( $instance['irw_images']) ) ? $instance['irw_images'] : '';
 
 			if(isset($image_list) && $image_list != "") {
 				$images = explode(", ", $image_list);
@@ -177,7 +177,7 @@
 				$irw_transition_speed = esc_attr($instance['irw_transition_speed']);
 				$irw_nofollow = esc_attr($instance['irw_nofollow']);
 				$irw_new_window = esc_attr($instance['irw_new_window']);
-				$irw_rand_img = esc_attr($instance['irw_rand_img']);
+				$irw_rand_img = isset($instance['irw_rand_img']) ? esc_attr($instance['irw_rand_img']) : '';
 			} ?>
 
 			<h5 class="irw_header">Options</h5>

@@ -1,8 +1,8 @@
 === Image Rotator Widget ===
 Contributors: douglaskarr, srcoley 
 Tags: jquery, widget, widgets, image, images, rotator, slider, logo, transition, sidebar
-Stable tag: 1.0.3
-Version: 1.0.3
+Stable tag: 1.0.4
+Version: 1.0.4
 Requires at least: 2.7
 Tested up to: 4.1.1
 
@@ -74,6 +74,11 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 6. Drag & Drop images to sort, right in the widget settings.
 
 == Changelog ==
+= 1.0.4 =
+* Corrected an issue with undefined index error. Credit: Jose Castaneda
+
+= 1.0.3 =
+* Corrected an issue with the animation in fade and loop where some sites were just seeing the loading gif with no image showing up.
 
 = 1.0.2 =
 * Enhancement: Adjustment of speed transition to allow for slower transitions.
@@ -179,5 +184,8 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 * Initial release
 
 == Upgrade Notice ==
+= 1.0.4 =
+* Corrected an issue with undefined index error.
+
 = 1.0.3 =
 * Corrected an issue with the animation in fade and loop where some sites were just seeing the loading gif with no image showing up.
