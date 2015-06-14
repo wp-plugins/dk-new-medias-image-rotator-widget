@@ -1,10 +1,10 @@
 === Image Rotator Widget ===
 Contributors: douglaskarr, srcoley 
 Tags: jquery, widget, widgets, image, images, rotator, slider, logo, transition, sidebar
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Version: 1.0.4
 Requires at least: 2.7
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 
 A sidebar widget for rotating and displaying images in your sidebar, allowing you to loop, set the speed, target a new window if linked, and even randomize the order! Great for displaying client logos on a corporate site.
 
@@ -74,6 +74,9 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 6. Drag & Drop images to sort, right in the widget settings.
 
 == Changelog ==
+= 1.0.5 = 
+* Corrected a bug where the rotator always opened a new window. Credit: pulk99
+
 = 1.0.4 =
 * Corrected an issue with undefined index error. Credit: Jose Castaneda
 
@@ -184,6 +187,9 @@ You can ask questions [Here](http://www.dknewmedia.com/ "DK New Media")
 * Initial release
 
 == Upgrade Notice ==
+= 1.0.5 =
+* Corrected a bug with the link always opening in a new window.
+
 = 1.0.4 =
 * Corrected an issue with undefined index error.
 
