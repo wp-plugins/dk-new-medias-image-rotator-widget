@@ -111,8 +111,6 @@
 				$transition_speed = $instance['irw_transition_speed'];
 				$no_follow = $instance['irw_nofollow'];
 				if ($instance['irw_new_window'] == 'true' ) { $new_window = 'target="_blank"'; } else { $new_window = ''; }
-				$new_window = $instance['irw_new_window'];
-				$new_window = ($new_window === 'true') ? 'target="_blank"' : '';
 				$rand_img = $instance['irw_rand_img'];
 				echo $before_widget;
 				if ( !empty( $irw_title ) ) { echo $before_title . $irw_title . $after_title; }
