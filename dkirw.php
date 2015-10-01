@@ -3,11 +3,12 @@
 	Plugin Name: Image Rotator Widget
 	Plugin URI: http://www.dknewmedia.com
 	Description: A sidebar widget for rotating images utilizing jQuery. Great for displaying a stream of logos in your sidebar. Built by <a href="http://dknewmedia.com">DK New Media</a>.
-	Version: 1.0.6
+	Version: 1.0.7
 	Author: Douglas Karr, Stephen Coley 
 	Author URI: http://www.dknewmedia.com
+	Text Domain: dk-new-medias-image-rotator-widget
 
-	Copyright 2014  DK New Media  (email : info@dknewmedia.com)
+	Copyright 2015  DK New Media  (email : info@dknewmedia.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
@@ -178,22 +179,22 @@
 				$irw_rand_img = isset($instance['irw_rand_img']) ? esc_attr($instance['irw_rand_img']) : '';
 			} ?>
 
-			<h5 class="irw_header">Options</h5>
+			<h5 class="irw_header"><?php _e('Options', 'dk-new-medias-image-rotator-widget'); ?></h5>
 
 			<p>
-				<label for="<?php echo $this->get_field_id('irw_title'); ?>"><?php _e('Title:'); ?></label> 
+				<label for="<?php echo $this->get_field_id('irw_title'); ?>"><?php _e('Title:', 'dk-new-medias-image-rotator-widget'); ?></label> 
 				<input class="widefat" id="<?php echo $this->get_field_id('irw_title'); ?>" name="<?php echo $this->get_field_name('irw_title'); ?>" type="text" value="<?php echo $irw_title; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_name('irw_transition'); ?>">Transition: </label>
+				<label for="<?php echo $this->get_field_name('irw_transition'); ?>"><?php _e('Transition:', 'dk-new-medias-image-rotator-widget'); ?> </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition'); ?>" id="<?php echo $this->get_field_id('irw_transition'); ?>">
-					<option <?php if($irw_transition == "linear") { echo 'selected="selected"'; } ?> value="linear">Linear</option>
-					<option <?php if($irw_transition == "loop") { echo 'selected="selected"'; } ?> value="loop">Loop</option>
-					<option <?php if($irw_transition == "fade") { echo 'selected="selected"'; } ?> value="fade">Fade</option>
+					<option <?php if($irw_transition == "linear") { echo 'selected="selected"'; } ?> value="linear"><?php _e('Linear', 'dk-new-medias-image-rotator-widget'); ?></option>
+					<option <?php if($irw_transition == "loop") { echo 'selected="selected"'; } ?> value="loop"><?php _e('Loop', 'dk-new-medias-image-rotator-widget'); ?></option>
+					<option <?php if($irw_transition == "fade") { echo 'selected="selected"'; } ?> value="fade"><?php _e('Fade', 'dk-new-medias-image-rotator-widget'); ?></option>
 				</select>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_name('irw_transition_speed'); ?>">Transition Speed: </label>
+				<label for="<?php echo $this->get_field_name('irw_transition_speed'); ?>"><?php _e('Transition Speed:', 'dk-new-medias-image-rotator-widget'); ?> </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_transition_speed'); ?>" id="<?php echo $this->get_field_id('irw_transition_speed'); ?>">				
 					<?php
 							$k = 1;
@@ -210,22 +211,22 @@
 				</select>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_name('irw_nofollow'); ?>">Apply nofollow: </label>
+				<label for="<?php echo $this->get_field_name('irw_nofollow'); ?>"><?php _e('Apply nofollow:', 'dk-new-medias-image-rotator-widget'); ?> </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_nofollow'); ?>" id="<?php echo $this->get_field_id('irw_nofollow'); ?>">
-					<option <?php if($irw_nofollow == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
-					<option <?php if($irw_nofollow == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
+					<option <?php if($irw_nofollow == "true") { echo 'selected="selected"'; } ?> value="true"><?php _e('True', 'dk-new-medias-image-rotator-widget'); ?></option>
+					<option <?php if($irw_nofollow == "false") { echo 'selected="selected"'; } ?> value="false"><?php _e('False', 'dk-new-medias-image-rotator-widget'); ?></option>
 				</select>
 			</p><p>
-				<label for="<?php echo $this->get_field_name('irw_new_window'); ?>">Open in New tab/window: </label>
+				<label for="<?php echo $this->get_field_name('irw_new_window'); ?>"><?php _e('Open in New tab/window:', 'dk-new-medias-image-rotator-widget'); ?> </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_new_window'); ?>" id="<?php echo $this->get_field_id('irw_new_window'); ?>">
-					<option <?php if($irw_new_window == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
-					<option <?php if($irw_new_window == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
+					<option <?php if($irw_new_window == "true") { echo 'selected="selected"'; } ?> value="true"><?php _e('True', 'dk-new-medias-image-rotator-widget'); ?></option>
+					<option <?php if($irw_new_window == "false") { echo 'selected="selected"'; } ?> value="false"><?php _e('False', 'dk-new-medias-image-rotator-widget'); ?></option>
 				</select>
 			</p><p>
-				<label for="<?php echo $this->get_field_name('irw_rand_img'); ?>">Randomize order: </label>
+				<label for="<?php echo $this->get_field_name('irw_rand_img'); ?>"><?php _e('Randomize order:', 'dk-new-medias-image-rotator-widget'); ?> </label>
 				<select class="widefat" name="<?php echo $this->get_field_name('irw_rand_img'); ?>" id="<?php echo $this->get_field_id('irw_rand_img'); ?>">
-					<option <?php if($irw_rand_img == "true") { echo 'selected="selected"'; } ?> value="true">True</option>
-					<option <?php if($irw_rand_img == "false") { echo 'selected="selected"'; } ?> value="false">False</option>
+					<option <?php if($irw_rand_img == "true") { echo 'selected="selected"'; } ?> value="true"><?php _e('True', 'dk-new-medias-image-rotator-widget'); ?></option>
+					<option <?php if($irw_rand_img == "false") { echo 'selected="selected"'; } ?> value="false"><?php _e('False', 'dk-new-medias-image-rotator-widget'); ?></option>
 				</select>
 			</p>
 
@@ -270,5 +271,4 @@
 			</script>
 
 		<?php }
-
-	} ?>
+} ?>
